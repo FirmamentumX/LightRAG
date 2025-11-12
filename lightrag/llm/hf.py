@@ -36,7 +36,7 @@ def initialize_hf_model(model_name):
         model_name, device_map="auto", trust_remote_code=True
     )
     hf_model = AutoModelForCausalLM.from_pretrained(
-        model_name, device_map="auto", trust_remote_code=True
+        model_name, device_map="auto", trust_remote_code=True, torch_dtype=torch.float16 # 改为fp16
     )
     if hf_tokenizer.pad_token is None:
         hf_tokenizer.pad_token = hf_tokenizer.eos_token
@@ -109,10 +109,18 @@ async def hf_model_if_cache(
     input_ids = hf_tokenizer(
         input_prompt, return_tensors="pt", padding=True, truncation=True
     ).to("cuda")
+    
     inputs = {k: v.to(hf_model.device) for k, v in input_ids.items()}
-    output = hf_model.generate(
-        **input_ids, max_new_tokens=512, num_return_sequences=1, early_stopping=True
-    )
+    
+    # 修改这里：确保在 fp16 模式下生成
+    with torch.autocast("cuda", dtype=torch.float16):  # 添加自动混合精度
+        output = hf_model.generate(
+            **input_ids, 
+            max_new_tokens=512, 
+            num_return_sequences=1, 
+            early_stopping=True,
+        )
+    
     response_text = hf_tokenizer.decode(
         output[0][len(inputs["input_ids"][0]) :], skip_special_tokens=True
     )

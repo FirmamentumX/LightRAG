@@ -1,0 +1,17 @@
+{
+  "doc-addb4618e1697da0445ec72a648e1f92": {
+    "status": "failed",
+    "error_msg": "C[1/42]: chunk-74e2466de2f67fd710ef2f20c0a8d9e0: CUDA out of memory. Tried to allocate 2.17 GiB. GPU 0 has a total capacity of 23.64 GiB of which 2.07 GiB is free. Including non-PyTorch memory, this process has 21.35 GiB memory in use. Of the allocated memory 19.24 GiB is allocated by PyTorch, and 1.66 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "content_summary": "﻿The Project Gutenberg eBook of A Christmas Carol\n    \nThis ebook is for the use of anyone anywhere in the United States and\nmost other parts of the world at no cost and with almost no restrictions\nwhatsoever. You may copy it, give it away or re-use ...",
+    "content_length": 185064,
+    "created_at": "2025-11-12T13:28:16.364391+00:00",
+    "updated_at": "2025-11-12T13:38:30.855254+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20251112_212816_9e9f5b7e",
+    "metadata": {
+      "processing_start_time": 1762954695,
+      "processing_end_time": 1762954710
+    },
+    "chunks_list": []
+  }
+}
