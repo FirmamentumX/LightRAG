@@ -1,0 +1,31 @@
+2025-11-16 12:26:30,548 - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-108137109' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() done, defined at /root/LightRAG/lightrag/utils.py:533> exception=SystemExit(1)>
+Traceback (most recent call last):
+  File "/root/LightRAG/atc_2.py", line 653, in signal_handler
+    asyncio.run(safe_shutdown(1))
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/LightRAG/atc_2.py", line 692, in <module>
+    interrupted = evaluate_dataset(test_file)
+  File "/root/LightRAG/atc_2.py", line 569, in evaluate_dataset
+    return asyncio.run(evaluate_dataset_async(file_path))
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/base_events.py", line 628, in run_until_complete
+    self.run_forever()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/base_events.py", line 595, in run_forever
+    self._run_once()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/base_events.py", line 1881, in _run_once
+    handle._run()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/root/LightRAG/lightrag/utils.py", line 548, in worker
+    continue
+  File "/root/LightRAG/atc_2.py", line 656, in signal_handler
+    sys.exit(1)
+SystemExit: 1

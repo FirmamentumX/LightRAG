@@ -1,0 +1,104 @@
+2025-11-15 14:43:53,005 - INFO - 
+============================================================
+[COMPLETED] Final results: Total=0
+Model: LightRAG with custom LlamaQAModel
+Embedding Model: BAAI/bge-large-en-v1.5, Dimension: 1024
+Query Mode: hybrid
+Original Scores: EM=0.00%, F1=0.00%
+Corrected Scores: EM=0.00%, F1=0.00%
+Improvement: EM +0.00%, F1 +0.00%
+Log file saved to: ./logs/test.easy_2025-11-15T14-43-46_262354_lightrag_log.txt
+============================================================
+2025-11-15 14:43:53,005 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-34' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:43:53,005 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:43:53,005 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-35' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:43:53,005 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-33' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:43:53,005 - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-32' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() done, defined at /root/LightRAG/lightrag/utils.py:533> exception=SystemExit(1)>
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py", line 434, in wait_for
+    await waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/LightRAG/atc.py", line 711, in <module>
+    interrupted = evaluate_dataset(test_file)
+  File "/root/LightRAG/atc.py", line 589, in evaluate_dataset
+    return asyncio.run(evaluate_dataset_async(file_path))
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/runners.py", line 47, in run
+    _cancel_all_tasks(loop)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/runners.py", line 63, in _cancel_all_tasks
+    loop.run_until_complete(tasks.gather(*to_cancel, return_exceptions=True))
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/base_events.py", line 628, in run_until_complete
+    self.run_forever()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/base_events.py", line 595, in run_forever
+    self._run_once()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/base_events.py", line 1881, in _run_once
+    handle._run()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/root/LightRAG/lightrag/utils.py", line 575, in worker
+    result = await asyncio.wait_for(
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py", line 437, in wait_for
+    return fut.result()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/base_events.py", line 628, in run_until_complete
+    self.run_forever()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/base_events.py", line 595, in run_forever
+    self._run_once()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/base_events.py", line 1881, in _run_once
+    handle._run()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/root/LightRAG/lightrag/llm/hf.py", line 141, in hf_model_complete
+    result = await hf_model_if_cache(
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/tenacity/__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+  File "/root/LightRAG/lightrag/llm/hf.py", line 69, in hf_model_if_cache
+    hf_model, hf_tokenizer = initialize_hf_model(model_name)
+  File "/root/LightRAG/lightrag/llm/hf.py", line 38, in initialize_hf_model
+    hf_model = AutoModelForCausalLM.from_pretrained(
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/transformers/models/auto/auto_factory.py", line 604, in from_pretrained
+    return model_class.from_pretrained(
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+    return func(*args, **kwargs)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/transformers/modeling_utils.py", line 5048, in from_pretrained
+    ) = cls._load_pretrained_model(
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/transformers/modeling_utils.py", line 5468, in _load_pretrained_model
+    _error_msgs, disk_offload_index = load_shard_file(args)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/transformers/modeling_utils.py", line 843, in load_shard_file
+    disk_offload_index = _load_state_dict_into_meta_model(
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/transformers/modeling_utils.py", line 750, in _load_state_dict_into_meta_model
+    param = param.to(casting_dtype)
+  File "/root/LightRAG/atc.py", line 676, in signal_handler
+    sys.exit(1)
+SystemExit: 1
+2025-11-15 14:43:53,010 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:43:53,010 - ERROR - Task was destroyed but it is pending!
+task: <Task cancelling name='Task-20' coro=<Queue.get() running at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/queues.py:159> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718, _release_waiter(<Future pendi...ask_wakeup()]>)() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:387]>
+2025-11-15 14:43:53,011 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-43' coro=<Queue.get() running at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/queues.py:150> cb=[_release_waiter(<Future pendi...ask_wakeup()]>)() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:387]>

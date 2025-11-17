@@ -1,0 +1,446 @@
+2025-11-15 14:11:20,014 - INFO - Log file will be saved to: ./logs/test.hard_2025-11-15T14-11-20_013824_lightrag_log.txt
+2025-11-15 14:11:20,015 - INFO - Embedding Model: BAAI/bge-large-en-v1.5, Dimension: 1024
+2025-11-15 14:11:20,015 - INFO - Query Mode: hybrid
+2025-11-15 14:11:20,015 - INFO - Opened file: /root/raptor/test.hard.json
+2025-11-15 14:11:20,015 - INFO - Using model: lightrag with custom LlamaQAModel
+2025-11-15 14:11:22,111 - INFO - Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': './lightrag_test_hard_temp/test_1_1763215880/vdb_entities.json'} 0 data
+2025-11-15 14:11:22,111 - INFO - Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': './lightrag_test_hard_temp/test_1_1763215880/vdb_relationships.json'} 0 data
+2025-11-15 14:11:22,112 - INFO - Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': './lightrag_test_hard_temp/test_1_1763215880/vdb_chunks.json'} 0 data
+2025-11-15 14:13:10,746 - INFO - 
+===== ENTRY 1 ===== (CONTAINMENT CORRECTED)
+❌✅ [INCORRECT -> CORRECT] ID: /wiki/Attaphol_Buspakom#P54#0
+Question: Which team did Attaphol Buspakom play for between Apr 1987 and Nov 1988?
+Prediction: provided, Attaphol Buspakom played for Thai Port FC between 198
+
+--- RETRIEVED CONTEXT (debug) ---
+
+Knowledge Graph Data (Entity):
+
+```json
+{"entity": "Attaphol Buspakom", "type": "person", "description": "Attaphol Buspakom is a former Thai football player and coach who played for the Thailand national football team and managed several clubs, including Muangthong United and Buriram United.<SEP>Attaphol Buspakom is a Thai footballer and manager who led Buriram United to multiple championships."}
+{"entity": "Thailand national football team", "type": "team", "description": "The Thailand national football team is the national team representing Thailand in international football competitions, where Attaphol Buspakom played between 1985 and 1998."}
+{"entity": "Thai Port FC", "type": "organization", "description": "Thai Port FC is a Thai football club where Attaphol Buspakom began his career in 1985."}
+{"entity": "Authority of Thailand", "type": "organization", "description": "Authority of Thailand is the governing body of Thai football, overseeing Attaphol Buspakom's early career."}
+{"entity": "Wannaphon Buspakom", "type": "person", "description": "Wannaphon Buspakom is the son of Attaphol Buspakom and a professional footballer."}
+{"entity": "Pahang FA", "type": "organization", "description": "Pahang FA is a Malaysian football club where Attaphol Buspakom played for two seasons.<SEP>Pahang FA is a Malaysian football club that won the Kor Royal Cup."}
+{"entity": "Thai Premier League Coach of the Year", "type": "UNKNOWN", "description": "Attaphol Buspakom received the Thai Premier League Coach of the Year award three times."}
+{"entity": "Bangkok Glass", "type": "organization", "description": "Bangkok Glass is a Thai football club where Attaphol Buspakom played."}
+{"entity": "Malaysia Super League", "type": "category", "description": "The Malaysia Super League is the top-tier football competition in Malaysia, where Pahang FA competed under Attaphol Buspakom's leadership.<SEP>The Malaysia Super League is the top-tier football league in Malaysia where Pahang FA competed."}
+{"entity": "Malaysia Cup", "type": "competition", "description": "The Malaysia Cup is a domestic football competition in Malaysia, where Pahang FA reached the final under Attaphol Buspakom's management."}
+{"entity": "Kor Royal Cup", "type": "UNKNOWN", "description": "Thai Port won the Kor Royal Cup in 1985 and 1990."}
+{"entity": "2011 Thai FA Cup", "type": "competition", "description": "The 2011 Thai FA Cup is a domestic football competition in Thailand, where Buriram United won under Attaphol Buspakom's management."}
+{"entity": "Thai Port", "type": "UNKNOWN", "description": "Thai Port won the Kor Royal Cup in 1985 and 1990."}
+{"entity": "Muangthong United", "type": "organization", "description": "Muangthong United is a Thai football club that won the Thai Premier League under Attaphol's management.<SEP>Muangthong United is a Thai football club managed by Attaphol Buspakom."}
+{"entity": "FC Stock Exchange of Thailand", "type": "organization", "description": "FC Stock Exchange of Thailand is a Thai football club where Attaphol Buspakom ended his playing career."}
+{"entity": "Tak", "type": "person", "description": "Tak is a nickname for Attaphol Buspakom."}
+{"entity": "BEC Tero Sasana F.C.", "type": "organization", "description": "BEC Tero Sasana F.C. is a Thai football club where Attaphol Buspakom started his coaching career in 2001."}
+{"entity": "Thai Premier League Coach of the Year (3): 2001-02, 2009, 2013", "type": "category", "description": "Attaphol Buspakom was awarded the Thai Premier League Coach of the Year award three times."}
+{"entity": "BEC Tero Sasana", "type": "organization", "description": "BEC Tero Sasana is a Thai football club managed by Attaphol Buspakom."}
+{"entity": "Malaysia FA Cup", "type": "competition", "description": "The Malaysia FA Cup is a domestic football competition in Malaysia, where Pahang FA reached the final under Attaphol Buspakom's leadership."}
+{"entity": "Thai Premier League", "type": "category", "description": "The Thai Premier League is the top-tier football league in Thailand where Buriram United competed.<SEP>The Thai Premier League is the top-tier football competition in Thailand, where Muangthong United and Buriram United competed under Attaphol Buspakom's leadership."}
+{"entity": "FIFA World Cup", "type": "event", "description": "The FIFA World Cup is a global football tournament where Attaphol Buspakom played several qualifying matches with the Thailand national team."}
+{"entity": "Thai FA Cup", "type": "category", "description": "The Thai FA Cup is a domestic football cup competition won by Buriram United under Attaphol's management."}
+{"entity": "2011 Thai League Cup", "type": "competition", "description": "The 2011 Thai League Cup is a domestic football competition in Thailand, where Buriram United won under Attaphol Buspakom's leadership."}
+{"entity": "Buriram United", "type": "organization", "description": "Buriram United is a Thai football club that won several titles under Attaphol's leadership."}
+{"entity": "Tianhe Stadium", "type": "location", "description": "Tianhe Stadium is the venue where Buriram United played against Guangzhou.<SEP>The Tianhe Stadium is a venue in China where Buriram United played against Guangzhou Evergrande F.C. under Attaphol Buspakom's management."}
+{"entity": "Thai FA Cup Winners (2): 1985, 1990", "type": "category", "description": "The Thai FA Cup is a domestic football cup competition won by Thai Port."}
+{"entity": "Thai League Cup", "type": "category", "description": "The Thai League Cup is a domestic football cup competition won by Buriram United under Attaphol's management."}
+{"entity": "Kor Royal Cup Winners (2): 1985, 1990", "type": "category", "description": "The Kor Royal Cup is a domestic football cup competition won by Thai Port and Pahang FA."}
+{"entity": "ASEAN Club Championship Runner-up (1): 2003", "type": "category", "description": "The ASEAN Club Championship is a regional football club competition where BEC Tero Sasana competed."}
+{"entity": "Guangzhou", "type": "location", "description": "Guangzhou is a city in China where Buriram United played against Guangzhou."}
+{"entity": "Toyota Premier Cup Winner (1): 2011", "type": "category", "description": "The Toyota Premier Cup is a domestic football cup competition won by Buriram United."}
+{"entity": "Kor Royal Cup Winner (1): 2013", "type": "category", "description": "The Kor Royal Cup is a domestic football cup competition won by Buriram United."}
+{"entity": "Kashiwa Reysol", "type": "organization", "description": "Kashiwa Reysol is a Japanese football club that competed against Buriram United."}
+{"entity": "Jeonbuk Hyundai Motors", "type": "organization", "description": "Jeonbuk Hyundai Motors is a South Korean football club that defeated Buriram United in the championship."}
+{"entity": "China", "type": "location", "description": "China is a country where Kashiwa Reysol's opponent Guangzhou is located."}
+{"entity": "Japan", "type": "location", "description": "Japan is the country where Kashiwa Reysol is based."}
+```
+
+Knowledge Graph Data (Relationship):
+
+```json
+{"entity1": "Attaphol Buspakom", "entity2": "Thai Premier League Coach of the Year", "description": "Attaphol Buspakom received the Thai Premier League Coach of the Year award three times."}
+{"entity1": "Attaphol Buspakom", "entity2": "Thai Port FC", "description": "Attaphol Buspakom began his career as a player at Thai Port FC."}
+{"entity1": "Attaphol Buspakom", "entity2": "Authority of Thailand", "description": "Authority of Thailand is the governing body overseeing Attaphol Buspakom's early career."}
+{"entity1": "Attaphol Buspakom", "entity2": "Pahang FA", "description": "Attaphol Buspakom played for Pahang FA in Malaysia."}
+{"entity1": "Attaphol Buspakom", "entity2": "Malaysia Super League", "description": "Pahang FA competed in the Malaysia Super League under Attaphol Buspakom's leadership."}
+{"entity1": "Attaphol Buspakom", "entity2": "Malaysia Cup", "description": "Pahang FA reached the final of the Malaysia Cup under Attaphol Buspakom's management."}
+{"entity1": "Kor Royal Cup", "entity2": "Thai Port", "description": "Thai Port won the Kor Royal Cup in 1985 and 1990."}
+```
+
+Document Chunks (Each entry has a reference_id refer to the `Reference Document List`):
+
+```json
+{"reference_id": "", "content": "Attaphol Buspakom Attaphol Buspakom ( ; ) , nicknamed Tak ( ; ) ; 1 October 1962 – 16 April 2015 ) was a Thai national and football coach . He was given the role at Muangthong United and Buriram United after TTM Samut Sakhon folded after the 2009 season . He played for the Thailand national football team , appearing in several FIFA World Cup qualifying matches . Club career . Attaphol began his career as a player at Thai Port FC Authority of Thailand in 1985 . In his first year , he won his first championship with the club . He played for the club until 1989 and in 1987 also won the Queens Cup . He then moved to Malaysia for two seasons for Pahang FA , then return to Thailand to his former club . His time from 1991 to 1994 was marked by less success than in his first stay at Port Authority . From 1994 to 1996 he played for Pahang again and this time he was able to win with the club , the Malaysia Super League and also reached the final of the Malaysia Cup and the Malaysia FA Cup . Both cup finals but lost . Back in Thailand , he let end his playing career at FC Stock Exchange of Thailand , with which he once again runner-up in 1996-97 . In 1998 , he finished his career . International career . For the Thailand national football team Attaphol played between 1985 and 1998 a total of 85 games and scored 13 results . In 1992 , he participated with the team in the finals of the Asian Cup . He also stood in various cadres to qualifications to FIFA World Cup . Coaching career . Bec Tero Sasana . In BEC Tero Sasana F.C . began his coaching career in 2001 for him , first as assistant coach . He took over the reigning champions of the Thai League T1 , after his predecessor Pichai Pituwong resigned from his post . It was his first coach station and he had the difficult task of leading the club through the new AFC Champions League . He could accomplish this task with flying colors and even led the club to the finals . The finale , then still played in home and away matches , was lost with 1:2 at the end against Al Ain FC . Attaphol is and was next to Charnwit Polcheewin the only coach who managed a club from Thailand to lead to the final of the AFC Champions League . 2002-03 and 2003-04 he won with the club also two runner-up . In his team , which reached the final of the Champions League , were a number of exceptional players like Therdsak Chaiman , Worrawoot Srimaka , Dusit Chalermsan and Anurak Srikerd . Geylang United / Krung Thai Bank . In 2006 , he went to Singapore in the S-League to Geylang United He was released after a few months due to lack of success . In 2008 , he took over as coach at Krung Thai Bank F.C. , where he had almost a similar task , as a few years earlier by BEC-Tero . As vice-champion of the club was also qualified for the AFC Champions League . However , he failed to lead the team through the group stage of the season 2008 and beyond . With the Kashima Antlers of Japan and Beijing Guoan F.C . athletic competition was too great . One of the highlights was put under his leadership , yet the club . In the group match against the Vietnam club Nam Dinh F.C . his team won with 9-1 , but also lost four weeks later with 1-8 against Kashima Antlers . At the end of the National Football League season , he reached the Krung Thai 6th Table space . The Erstligalizenz the club was sold at the end of the season at the Bangkok Glass F.C. . Attaphol finished his coaching career with the club and accepted an offer of TTM Samutsakorn . After only a short time in office Muangthong United . In 2009 , he received an offer from Muangthong United F.C. , which he accepted and changed . He can champion Muang Thong United for 2009 Thai Premier League and Attaphol won Coach of The year for Thai Premier League and he was able to lead Muang Thong United to play AFC Champions League qualifying play-off for the first in the clubs history . Buriram United . In 2010 Buspakom moved from Muangthong United to Buriram United F.C. . He received Coach of the Month in Thai Premier League 2 time in June and October . In 2011 , he led Buriram United win 2011 Thai Premier League second time for club and set a record with the most points in the Thai League T1 for 85 point and He led Buriram win 2011 Thai FA Cup by beat Muangthong United F.C . 1-0 and he led Buriram win 2011 Thai League Cup by beat Thai Port F.C . 2-0 . In 2012 , he led Buriram United to the 2012 AFC Champions League group stage . Buriram along with Guangzhou Evergrande F.C . from China , Kashiwa Reysol from Japan and Jeonbuk Hyundai Motors which are all champions from their country . In the first match of Buriram they beat Kashiwa 3-2 and Second Match they beat Guangzhou 1-2 at the Tianhe Stadium . Before losing to Jeonbuk 0-2 and 3-2 with lose Kashiwa and Guangzhou 1-0 and 1-2 respectively and Thai Premier League Attaphol lead"}
+{"reference_id": "", "content": "ande F.C . from China , Kashiwa Reysol from Japan and Jeonbuk Hyundai Motors which are all champions from their country . In the first match of Buriram they beat Kashiwa 3-2 and Second Match they beat Guangzhou 1-2 at the Tianhe Stadium . Before losing to Jeonbuk 0-2 and 3-2 with lose Kashiwa and Guangzhou 1-0 and 1-2 respectively and Thai Premier League Attaphol lead Buriram end 4th for table with win 2012 Thai FA Cup and 2012 Thai League Cup . Bangkok Glass . In 2013 , he moved from Buriram United to Bangkok Glass F.C. . Personal life . Attaphols sons , Wannaphon Buspakom and Kanokpon Buspakom , are professional footballers . Honours . Player . Thai Port - Kor Royal Cup - Winners ( 2 ) : 1985 , 1990 Pahang FA - Malaysia Super League - Champions ( 1 ) : 1995 Thailand - Sea Games - Gold Medal ( 1 ) ; 1993 - Silver Medal ( 1 ) ; 1991 Manager . BEC Tero Sasana - AFC Champions League - Runner-up ( 1 ) : 2002-03 - ASEAN Club Championship - Runner-up ( 1 ) : 2003 Muangthong United - Thai Premier League - Champions ( 1 ) : 2009 Buriram United - Thai Premier League - Champions ( 1 ) : 2011 - Thai FA Cup - Winners ( 2 ) : 2011 , 2012 - Thai League Cup - Winners ( 2 ) : 2011 , 2012 - Toyota Premier Cup - Winner ( 1 ) : 2011 - Kor Royal Cup - Winner ( 1 ) : 2013 Individual - Thai Premier League Coach of the Year ( 3 ) : 2001-02 , 2009 , 2013 External links . - Profile at Goal"}
+```
+
+Reference Document List (Each entry starts with a [reference_id] that corresponds to entries in the Document Chunks):
+
+```
+
+```
+
+
+--- END CONTEXT ---
+
+Processed Targets: ['Port F.C', 'Thailand national football team']
+Original EM: 0, F1: 0.3333
+Corrected EM: 1.0, F1: 1.0000
+=================
+
+2025-11-15 14:13:13,734 - INFO - Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': './lightrag_test_hard_temp/test_2_1763215990/vdb_entities.json'} 0 data
+2025-11-15 14:13:13,734 - INFO - Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': './lightrag_test_hard_temp/test_2_1763215990/vdb_relationships.json'} 0 data
+2025-11-15 14:13:13,734 - INFO - Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': './lightrag_test_hard_temp/test_2_1763215990/vdb_chunks.json'} 0 data
+2025-11-15 14:13:20,655 - INFO - 
+===== ENTRY 2 =====
+❌ [INCORRECT] ID: /wiki/Attaphol_Buspakom#P54#1
+Question: Which team did Attaphol Buspakom play for between May 1989 and Oct 1990?
+Prediction: provided, Attaphol Buspakom played for Thai Port FC between 198
+
+--- RETRIEVED CONTEXT (debug) ---
+
+Knowledge Graph Data (Entity):
+
+```json
+{"entity": "Tak", "type": "person", "description": "Tak is a nickname for Attaphol Buspakom."}
+{"entity": "Attaphol Buspakom", "type": "person", "description": "Attaphol Buspakom is a former Thai football player and coach who played for the Thailand national football team and managed several clubs, including Muangthong United and Buriram United.<SEP>Attaphol Buspakom is a Thai footballer and manager who led Buriram United to multiple championships."}
+{"entity": "Thai Premier League Coach of the Year", "type": "UNKNOWN", "description": "Attaphol Buspakom received the Thai Premier League Coach of the Year award three times."}
+{"entity": "Authority of Thailand", "type": "organization", "description": "Authority of Thailand is the governing body of Thai football, overseeing Attaphol Buspakom's early career."}
+{"entity": "Pahang FA", "type": "organization", "description": "Pahang FA is a Malaysian football club where Attaphol Buspakom played for two seasons.<SEP>Pahang FA is a Malaysian football club that won the Kor Royal Cup."}
+{"entity": "Thai Port FC", "type": "organization", "description": "Thai Port FC is a Thai football club where Attaphol Buspakom began his career in 1985."}
+{"entity": "Thai Premier League Coach of the Year (3): 2001-02, 2009, 2013", "type": "category", "description": "Attaphol Buspakom was awarded the Thai Premier League Coach of the Year award three times."}
+{"entity": "Malaysia Super League", "type": "competition", "description": "The Malaysia Super League is the top-tier football competition in Malaysia, where Pahang FA competed under Attaphol Buspakom's leadership.<SEP>The Malaysia Super League is the top-tier football league in Malaysia where Pahang FA competed."}
+{"entity": "Bangkok Glass", "type": "organization", "description": "Bangkok Glass is a Thai football club where Attaphol Buspakom played."}
+{"entity": "Malaysia Cup", "type": "competition", "description": "The Malaysia Cup is a domestic football competition in Malaysia, where Pahang FA reached the final under Attaphol Buspakom's management."}
+{"entity": "FC Stock Exchange of Thailand", "type": "organization", "description": "FC Stock Exchange of Thailand is a Thai football club where Attaphol Buspakom ended his playing career."}
+{"entity": "Kor Royal Cup", "type": "UNKNOWN", "description": "Thai Port won the Kor Royal Cup in 1985 and 1990."}
+{"entity": "Wannaphon Buspakom", "type": "person", "description": "Wannaphon Buspakom is the son of Attaphol Buspakom and a professional footballer."}
+{"entity": "Thai Port", "type": "UNKNOWN", "description": "Thai Port won the Kor Royal Cup in 1985 and 1990."}
+{"entity": "Thailand national football team", "type": "team", "description": "The Thailand national football team is the national team representing Thailand in international football competitions, where Attaphol Buspakom played between 1985 and 1998."}
+{"entity": "Muangthong United", "type": "organization", "description": "Muangthong United is a Thai football club that won the Thai Premier League under Attaphol's management.<SEP>Muangthong United is a Thai football club managed by Attaphol Buspakom."}
+{"entity": "2011 Thai FA Cup", "type": "competition", "description": "The 2011 Thai FA Cup is a domestic football competition in Thailand, where Buriram United won under Attaphol Buspakom's management."}
+{"entity": "Malaysia FA Cup", "type": "competition", "description": "The Malaysia FA Cup is a domestic football competition in Malaysia, where Pahang FA reached the final under Attaphol Buspakom's leadership."}
+{"entity": "2011 Thai League Cup", "type": "competition", "description": "The 2011 Thai League Cup is a domestic football competition in Thailand, where Buriram United won under Attaphol Buspakom's leadership."}
+{"entity": "Thai Premier League", "type": "competition", "description": "The Thai Premier League is the top-tier football league in Thailand where Buriram United competed.<SEP>The Thai Premier League is the top-tier football competition in Thailand, where Muangthong United and Buriram United competed under Attaphol Buspakom's leadership."}
+{"entity": "FIFA World Cup", "type": "event", "description": "The FIFA World Cup is a global football tournament where Attaphol Buspakom played several qualifying matches with the Thailand national team."}
+{"entity": "BEC Tero Sasana F.C.", "type": "organization", "description": "BEC Tero Sasana F.C. is a Thai football club where Attaphol Buspakom started his coaching career in 2001."}
+{"entity": "BEC Tero Sasana", "type": "organization", "description": "BEC Tero Sasana is a Thai football club managed by Attaphol Buspakom."}
+{"entity": "Thai FA Cup", "type": "category", "description": "The Thai FA Cup is a domestic football cup competition won by Buriram United under Attaphol's management."}
+{"entity": "Buriram United", "type": "organization", "description": "Buriram United is a Thai football club that won several titles under Attaphol's leadership."}
+{"entity": "Thai FA Cup Winners (2): 1985, 1990", "type": "category", "description": "The Thai FA Cup is a domestic football cup competition won by Thai Port."}
+{"entity": "Thai League Cup", "type": "category", "description": "The Thai League Cup is a domestic football cup competition won by Buriram United under Attaphol's management."}
+{"entity": "Tianhe Stadium", "type": "location", "description": "Tianhe Stadium is the venue where Buriram United played against Guangzhou.<SEP>The Tianhe Stadium is a venue in China where Buriram United played against Guangzhou Evergrande F.C. under Attaphol Buspakom's management."}
+{"entity": "Kor Royal Cup Winners (2): 1985, 1990", "type": "category", "description": "The Kor Royal Cup is a domestic football cup competition won by Thai Port and Pahang FA."}
+{"entity": "ASEAN Club Championship Runner-up (1): 2003", "type": "category", "description": "The ASEAN Club Championship is a regional football club competition where BEC Tero Sasana competed."}
+{"entity": "Guangzhou", "type": "location", "description": "Guangzhou is a city in China where Buriram United played against Guangzhou."}
+{"entity": "Kor Royal Cup Winner (1): 2013", "type": "category", "description": "The Kor Royal Cup is a domestic football cup competition won by Buriram United."}
+{"entity": "Toyota Premier Cup Winner (1): 2011", "type": "category", "description": "The Toyota Premier Cup is a domestic football cup competition won by Buriram United."}
+{"entity": "Jeonbuk Hyundai Motors", "type": "organization", "description": "Jeonbuk Hyundai Motors is a South Korean football club that defeated Buriram United in the championship."}
+{"entity": "Kashiwa Reysol", "type": "organization", "description": "Kashiwa Reysol is a Japanese football club that competed against Buriram United."}
+{"entity": "China", "type": "location", "description": "China is a country where Kashiwa Reysol's opponent Guangzhou is located."}
+{"entity": "Japan", "type": "location", "description": "Japan is the country where Kashiwa Reysol is based."}
+```
+
+Knowledge Graph Data (Relationship):
+
+```json
+{"entity1": "Attaphol Buspakom", "entity2": "Thai Premier League Coach of the Year", "description": "Attaphol Buspakom received the Thai Premier League Coach of the Year award three times."}
+{"entity1": "Attaphol Buspakom", "entity2": "Authority of Thailand", "description": "Authority of Thailand is the governing body overseeing Attaphol Buspakom's early career."}
+{"entity1": "Attaphol Buspakom", "entity2": "Thai Port FC", "description": "Attaphol Buspakom began his career as a player at Thai Port FC."}
+{"entity1": "Attaphol Buspakom", "entity2": "Pahang FA", "description": "Attaphol Buspakom played for Pahang FA in Malaysia."}
+{"entity1": "Attaphol Buspakom", "entity2": "Malaysia Super League", "description": "Pahang FA competed in the Malaysia Super League under Attaphol Buspakom's leadership."}
+{"entity1": "Attaphol Buspakom", "entity2": "Malaysia Cup", "description": "Pahang FA reached the final of the Malaysia Cup under Attaphol Buspakom's management."}
+{"entity1": "Kor Royal Cup", "entity2": "Thai Port", "description": "Thai Port won the Kor Royal Cup in 1985 and 1990."}
+```
+
+Document Chunks (Each entry has a reference_id refer to the `Reference Document List`):
+
+```json
+{"reference_id": "", "content": "Attaphol Buspakom Attaphol Buspakom ( ; ) , nicknamed Tak ( ; ) ; 1 October 1962 – 16 April 2015 ) was a Thai national and football coach . He was given the role at Muangthong United and Buriram United after TTM Samut Sakhon folded after the 2009 season . He played for the Thailand national football team , appearing in several FIFA World Cup qualifying matches . Club career . Attaphol began his career as a player at Thai Port FC Authority of Thailand in 1985 . In his first year , he won his first championship with the club . He played for the club until 1989 and in 1987 also won the Queens Cup . He then moved to Malaysia for two seasons for Pahang FA , then return to Thailand to his former club . His time from 1991 to 1994 was marked by less success than in his first stay at Port Authority . From 1994 to 1996 he played for Pahang again and this time he was able to win with the club , the Malaysia Super League and also reached the final of the Malaysia Cup and the Malaysia FA Cup . Both cup finals but lost . Back in Thailand , he let end his playing career at FC Stock Exchange of Thailand , with which he once again runner-up in 1996-97 . In 1998 , he finished his career . International career . For the Thailand national football team Attaphol played between 1985 and 1998 a total of 85 games and scored 13 results . In 1992 , he participated with the team in the finals of the Asian Cup . He also stood in various cadres to qualifications to FIFA World Cup . Coaching career . Bec Tero Sasana . In BEC Tero Sasana F.C . began his coaching career in 2001 for him , first as assistant coach . He took over the reigning champions of the Thai League T1 , after his predecessor Pichai Pituwong resigned from his post . It was his first coach station and he had the difficult task of leading the club through the new AFC Champions League . He could accomplish this task with flying colors and even led the club to the finals . The finale , then still played in home and away matches , was lost with 1:2 at the end against Al Ain FC . Attaphol is and was next to Charnwit Polcheewin the only coach who managed a club from Thailand to lead to the final of the AFC Champions League . 2002-03 and 2003-04 he won with the club also two runner-up . In his team , which reached the final of the Champions League , were a number of exceptional players like Therdsak Chaiman , Worrawoot Srimaka , Dusit Chalermsan and Anurak Srikerd . Geylang United / Krung Thai Bank . In 2006 , he went to Singapore in the S-League to Geylang United He was released after a few months due to lack of success . In 2008 , he took over as coach at Krung Thai Bank F.C. , where he had almost a similar task , as a few years earlier by BEC-Tero . As vice-champion of the club was also qualified for the AFC Champions League . However , he failed to lead the team through the group stage of the season 2008 and beyond . With the Kashima Antlers of Japan and Beijing Guoan F.C . athletic competition was too great . One of the highlights was put under his leadership , yet the club . In the group match against the Vietnam club Nam Dinh F.C . his team won with 9-1 , but also lost four weeks later with 1-8 against Kashima Antlers . At the end of the National Football League season , he reached the Krung Thai 6th Table space . The Erstligalizenz the club was sold at the end of the season at the Bangkok Glass F.C. . Attaphol finished his coaching career with the club and accepted an offer of TTM Samutsakorn . After only a short time in office Muangthong United . In 2009 , he received an offer from Muangthong United F.C. , which he accepted and changed . He can champion Muang Thong United for 2009 Thai Premier League and Attaphol won Coach of The year for Thai Premier League and he was able to lead Muang Thong United to play AFC Champions League qualifying play-off for the first in the clubs history . Buriram United . In 2010 Buspakom moved from Muangthong United to Buriram United F.C. . He received Coach of the Month in Thai Premier League 2 time in June and October . In 2011 , he led Buriram United win 2011 Thai Premier League second time for club and set a record with the most points in the Thai League T1 for 85 point and He led Buriram win 2011 Thai FA Cup by beat Muangthong United F.C . 1-0 and he led Buriram win 2011 Thai League Cup by beat Thai Port F.C . 2-0 . In 2012 , he led Buriram United to the 2012 AFC Champions League group stage . Buriram along with Guangzhou Evergrande F.C . from China , Kashiwa Reysol from Japan and Jeonbuk Hyundai Motors which are all champions from their country . In the first match of Buriram they beat Kashiwa 3-2 and Second Match they beat Guangzhou 1-2 at the Tianhe Stadium . Before losing to Jeonbuk 0-2 and 3-2 with lose Kashiwa and Guangzhou 1-0 and 1-2 respectively and Thai Premier League Attaphol lead"}
+{"reference_id": "", "content": "ande F.C . from China , Kashiwa Reysol from Japan and Jeonbuk Hyundai Motors which are all champions from their country . In the first match of Buriram they beat Kashiwa 3-2 and Second Match they beat Guangzhou 1-2 at the Tianhe Stadium . Before losing to Jeonbuk 0-2 and 3-2 with lose Kashiwa and Guangzhou 1-0 and 1-2 respectively and Thai Premier League Attaphol lead Buriram end 4th for table with win 2012 Thai FA Cup and 2012 Thai League Cup . Bangkok Glass . In 2013 , he moved from Buriram United to Bangkok Glass F.C. . Personal life . Attaphols sons , Wannaphon Buspakom and Kanokpon Buspakom , are professional footballers . Honours . Player . Thai Port - Kor Royal Cup - Winners ( 2 ) : 1985 , 1990 Pahang FA - Malaysia Super League - Champions ( 1 ) : 1995 Thailand - Sea Games - Gold Medal ( 1 ) ; 1993 - Silver Medal ( 1 ) ; 1991 Manager . BEC Tero Sasana - AFC Champions League - Runner-up ( 1 ) : 2002-03 - ASEAN Club Championship - Runner-up ( 1 ) : 2003 Muangthong United - Thai Premier League - Champions ( 1 ) : 2009 Buriram United - Thai Premier League - Champions ( 1 ) : 2011 - Thai FA Cup - Winners ( 2 ) : 2011 , 2012 - Thai League Cup - Winners ( 2 ) : 2011 , 2012 - Toyota Premier Cup - Winner ( 1 ) : 2011 - Kor Royal Cup - Winner ( 1 ) : 2013 Individual - Thai Premier League Coach of the Year ( 3 ) : 2001-02 , 2009 , 2013 External links . - Profile at Goal"}
+```
+
+Reference Document List (Each entry starts with a [reference_id] that corresponds to entries in the Document Chunks):
+
+```
+
+```
+
+
+--- END CONTEXT ---
+
+Processed Targets: ['Pahang FA', 'Thailand national football team']
+Original EM: 0, F1: 0.0000
+Corrected EM: 0, F1: 0.0000
+=================
+
+2025-11-15 14:13:23,475 - INFO - Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': './lightrag_test_hard_temp/test_3_1763216000/vdb_entities.json'} 0 data
+2025-11-15 14:13:23,475 - INFO - Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': './lightrag_test_hard_temp/test_3_1763216000/vdb_relationships.json'} 0 data
+2025-11-15 14:13:23,475 - INFO - Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': './lightrag_test_hard_temp/test_3_1763216000/vdb_chunks.json'} 0 data
+2025-11-15 14:13:30,265 - INFO - 
+===== ENTRY 3 ===== (CONTAINMENT CORRECTED)
+❌✅ [INCORRECT -> CORRECT] ID: /wiki/Attaphol_Buspakom#P54#2
+Question: Which team did Attaphol Buspakom play for in Jun 1992?
+Prediction: provided, Attaphol Buspakom played for the Thailand national football team in
+
+--- RETRIEVED CONTEXT (debug) ---
+
+Knowledge Graph Data (Entity):
+
+```json
+{"entity": "Wannaphon Buspakom", "type": "person", "description": "Wannaphon Buspakom is the son of Attaphol Buspakom and a professional footballer."}
+{"entity": "Attaphol Buspakom", "type": "person", "description": "Attaphol Buspakom is a former Thai football player and coach who played for the Thailand national football team and managed several clubs, including Muangthong United and Buriram United.<SEP>Attaphol Buspakom is a Thai footballer and manager who led Buriram United to multiple championships."}
+{"entity": "Thai Premier League Coach of the Year", "type": "UNKNOWN", "description": "Attaphol Buspakom received the Thai Premier League Coach of the Year award three times."}
+{"entity": "Thai Port FC", "type": "organization", "description": "Thai Port FC is a Thai football club where Attaphol Buspakom began his career in 1985."}
+{"entity": "Pahang FA", "type": "organization", "description": "Pahang FA is a Malaysian football club where Attaphol Buspakom played for two seasons.<SEP>Pahang FA is a Malaysian football club that won the Kor Royal Cup."}
+{"entity": "Bangkok Glass", "type": "organization", "description": "Bangkok Glass is a Thai football club where Attaphol Buspakom played."}
+{"entity": "Authority of Thailand", "type": "organization", "description": "Authority of Thailand is the governing body of Thai football, overseeing Attaphol Buspakom's early career."}
+{"entity": "Thai Premier League Coach of the Year (3): 2001-02, 2009, 2013", "type": "category", "description": "Attaphol Buspakom was awarded the Thai Premier League Coach of the Year award three times."}
+{"entity": "Malaysia Super League", "type": "competition", "description": "The Malaysia Super League is the top-tier football competition in Malaysia, where Pahang FA competed under Attaphol Buspakom's leadership.<SEP>The Malaysia Super League is the top-tier football league in Malaysia where Pahang FA competed."}
+{"entity": "Thailand national football team", "type": "team", "description": "The Thailand national football team is the national team representing Thailand in international football competitions, where Attaphol Buspakom played between 1985 and 1998."}
+{"entity": "Malaysia Cup", "type": "competition", "description": "The Malaysia Cup is a domestic football competition in Malaysia, where Pahang FA reached the final under Attaphol Buspakom's management."}
+{"entity": "Kor Royal Cup", "type": "UNKNOWN", "description": "Thai Port won the Kor Royal Cup in 1985 and 1990."}
+{"entity": "Tak", "type": "person", "description": "Tak is a nickname for Attaphol Buspakom."}
+{"entity": "Thai Port", "type": "UNKNOWN", "description": "Thai Port won the Kor Royal Cup in 1985 and 1990."}
+{"entity": "FC Stock Exchange of Thailand", "type": "organization", "description": "FC Stock Exchange of Thailand is a Thai football club where Attaphol Buspakom ended his playing career."}
+{"entity": "FIFA World Cup", "type": "event", "description": "The FIFA World Cup is a global football tournament where Attaphol Buspakom played several qualifying matches with the Thailand national team."}
+{"entity": "Muangthong United", "type": "organization", "description": "Muangthong United is a Thai football club that won the Thai Premier League under Attaphol's management.<SEP>Muangthong United is a Thai football club managed by Attaphol Buspakom."}
+{"entity": "BEC Tero Sasana F.C.", "type": "organization", "description": "BEC Tero Sasana F.C. is a Thai football club where Attaphol Buspakom started his coaching career in 2001."}
+{"entity": "2011 Thai FA Cup", "type": "competition", "description": "The 2011 Thai FA Cup is a domestic football competition in Thailand, where Buriram United won under Attaphol Buspakom's management."}
+{"entity": "BEC Tero Sasana", "type": "organization", "description": "BEC Tero Sasana is a Thai football club managed by Attaphol Buspakom."}
+{"entity": "Malaysia FA Cup", "type": "competition", "description": "The Malaysia FA Cup is a domestic football competition in Malaysia, where Pahang FA reached the final under Attaphol Buspakom's leadership."}
+{"entity": "2011 Thai League Cup", "type": "competition", "description": "The 2011 Thai League Cup is a domestic football competition in Thailand, where Buriram United won under Attaphol Buspakom's leadership."}
+{"entity": "Thai Premier League", "type": "competition", "description": "The Thai Premier League is the top-tier football league in Thailand where Buriram United competed.<SEP>The Thai Premier League is the top-tier football competition in Thailand, where Muangthong United and Buriram United competed under Attaphol Buspakom's leadership."}
+{"entity": "Thai FA Cup", "type": "category", "description": "The Thai FA Cup is a domestic football cup competition won by Buriram United under Attaphol's management."}
+{"entity": "Buriram United", "type": "organization", "description": "Buriram United is a Thai football club that won several titles under Attaphol's leadership."}
+{"entity": "Tianhe Stadium", "type": "location", "description": "Tianhe Stadium is the venue where Buriram United played against Guangzhou.<SEP>The Tianhe Stadium is a venue in China where Buriram United played against Guangzhou Evergrande F.C. under Attaphol Buspakom's management."}
+{"entity": "Thai League Cup", "type": "category", "description": "The Thai League Cup is a domestic football cup competition won by Buriram United under Attaphol's management."}
+{"entity": "Thai FA Cup Winners (2): 1985, 1990", "type": "category", "description": "The Thai FA Cup is a domestic football cup competition won by Thai Port."}
+{"entity": "Kor Royal Cup Winners (2): 1985, 1990", "type": "category", "description": "The Kor Royal Cup is a domestic football cup competition won by Thai Port and Pahang FA."}
+{"entity": "Kor Royal Cup Winner (1): 2013", "type": "category", "description": "The Kor Royal Cup is a domestic football cup competition won by Buriram United."}
+{"entity": "ASEAN Club Championship Runner-up (1): 2003", "type": "category", "description": "The ASEAN Club Championship is a regional football club competition where BEC Tero Sasana competed."}
+{"entity": "Guangzhou", "type": "location", "description": "Guangzhou is a city in China where Buriram United played against Guangzhou."}
+{"entity": "Toyota Premier Cup Winner (1): 2011", "type": "category", "description": "The Toyota Premier Cup is a domestic football cup competition won by Buriram United."}
+{"entity": "Jeonbuk Hyundai Motors", "type": "organization", "description": "Jeonbuk Hyundai Motors is a South Korean football club that defeated Buriram United in the championship."}
+{"entity": "Kashiwa Reysol", "type": "organization", "description": "Kashiwa Reysol is a Japanese football club that competed against Buriram United."}
+{"entity": "China", "type": "location", "description": "China is a country where Kashiwa Reysol's opponent Guangzhou is located."}
+{"entity": "Japan", "type": "location", "description": "Japan is the country where Kashiwa Reysol is based."}
+```
+
+Knowledge Graph Data (Relationship):
+
+```json
+{"entity1": "Attaphol Buspakom", "entity2": "Thai Premier League Coach of the Year", "description": "Attaphol Buspakom received the Thai Premier League Coach of the Year award three times."}
+{"entity1": "Attaphol Buspakom", "entity2": "Thai Port FC", "description": "Attaphol Buspakom began his career as a player at Thai Port FC."}
+{"entity1": "Attaphol Buspakom", "entity2": "Pahang FA", "description": "Attaphol Buspakom played for Pahang FA in Malaysia."}
+{"entity1": "Attaphol Buspakom", "entity2": "Authority of Thailand", "description": "Authority of Thailand is the governing body overseeing Attaphol Buspakom's early career."}
+{"entity1": "Attaphol Buspakom", "entity2": "Malaysia Super League", "description": "Pahang FA competed in the Malaysia Super League under Attaphol Buspakom's leadership."}
+{"entity1": "Attaphol Buspakom", "entity2": "Malaysia Cup", "description": "Pahang FA reached the final of the Malaysia Cup under Attaphol Buspakom's management."}
+{"entity1": "Kor Royal Cup", "entity2": "Thai Port", "description": "Thai Port won the Kor Royal Cup in 1985 and 1990."}
+```
+
+Document Chunks (Each entry has a reference_id refer to the `Reference Document List`):
+
+```json
+{"reference_id": "", "content": "Attaphol Buspakom Attaphol Buspakom ( ; ) , nicknamed Tak ( ; ) ; 1 October 1962 – 16 April 2015 ) was a Thai national and football coach . He was given the role at Muangthong United and Buriram United after TTM Samut Sakhon folded after the 2009 season . He played for the Thailand national football team , appearing in several FIFA World Cup qualifying matches . Club career . Attaphol began his career as a player at Thai Port FC Authority of Thailand in 1985 . In his first year , he won his first championship with the club . He played for the club until 1989 and in 1987 also won the Queens Cup . He then moved to Malaysia for two seasons for Pahang FA , then return to Thailand to his former club . His time from 1991 to 1994 was marked by less success than in his first stay at Port Authority . From 1994 to 1996 he played for Pahang again and this time he was able to win with the club , the Malaysia Super League and also reached the final of the Malaysia Cup and the Malaysia FA Cup . Both cup finals but lost . Back in Thailand , he let end his playing career at FC Stock Exchange of Thailand , with which he once again runner-up in 1996-97 . In 1998 , he finished his career . International career . For the Thailand national football team Attaphol played between 1985 and 1998 a total of 85 games and scored 13 results . In 1992 , he participated with the team in the finals of the Asian Cup . He also stood in various cadres to qualifications to FIFA World Cup . Coaching career . Bec Tero Sasana . In BEC Tero Sasana F.C . began his coaching career in 2001 for him , first as assistant coach . He took over the reigning champions of the Thai League T1 , after his predecessor Pichai Pituwong resigned from his post . It was his first coach station and he had the difficult task of leading the club through the new AFC Champions League . He could accomplish this task with flying colors and even led the club to the finals . The finale , then still played in home and away matches , was lost with 1:2 at the end against Al Ain FC . Attaphol is and was next to Charnwit Polcheewin the only coach who managed a club from Thailand to lead to the final of the AFC Champions League . 2002-03 and 2003-04 he won with the club also two runner-up . In his team , which reached the final of the Champions League , were a number of exceptional players like Therdsak Chaiman , Worrawoot Srimaka , Dusit Chalermsan and Anurak Srikerd . Geylang United / Krung Thai Bank . In 2006 , he went to Singapore in the S-League to Geylang United He was released after a few months due to lack of success . In 2008 , he took over as coach at Krung Thai Bank F.C. , where he had almost a similar task , as a few years earlier by BEC-Tero . As vice-champion of the club was also qualified for the AFC Champions League . However , he failed to lead the team through the group stage of the season 2008 and beyond . With the Kashima Antlers of Japan and Beijing Guoan F.C . athletic competition was too great . One of the highlights was put under his leadership , yet the club . In the group match against the Vietnam club Nam Dinh F.C . his team won with 9-1 , but also lost four weeks later with 1-8 against Kashima Antlers . At the end of the National Football League season , he reached the Krung Thai 6th Table space . The Erstligalizenz the club was sold at the end of the season at the Bangkok Glass F.C. . Attaphol finished his coaching career with the club and accepted an offer of TTM Samutsakorn . After only a short time in office Muangthong United . In 2009 , he received an offer from Muangthong United F.C. , which he accepted and changed . He can champion Muang Thong United for 2009 Thai Premier League and Attaphol won Coach of The year for Thai Premier League and he was able to lead Muang Thong United to play AFC Champions League qualifying play-off for the first in the clubs history . Buriram United . In 2010 Buspakom moved from Muangthong United to Buriram United F.C. . He received Coach of the Month in Thai Premier League 2 time in June and October . In 2011 , he led Buriram United win 2011 Thai Premier League second time for club and set a record with the most points in the Thai League T1 for 85 point and He led Buriram win 2011 Thai FA Cup by beat Muangthong United F.C . 1-0 and he led Buriram win 2011 Thai League Cup by beat Thai Port F.C . 2-0 . In 2012 , he led Buriram United to the 2012 AFC Champions League group stage . Buriram along with Guangzhou Evergrande F.C . from China , Kashiwa Reysol from Japan and Jeonbuk Hyundai Motors which are all champions from their country . In the first match of Buriram they beat Kashiwa 3-2 and Second Match they beat Guangzhou 1-2 at the Tianhe Stadium . Before losing to Jeonbuk 0-2 and 3-2 with lose Kashiwa and Guangzhou 1-0 and 1-2 respectively and Thai Premier League Attaphol lead"}
+{"reference_id": "", "content": "ande F.C . from China , Kashiwa Reysol from Japan and Jeonbuk Hyundai Motors which are all champions from their country . In the first match of Buriram they beat Kashiwa 3-2 and Second Match they beat Guangzhou 1-2 at the Tianhe Stadium . Before losing to Jeonbuk 0-2 and 3-2 with lose Kashiwa and Guangzhou 1-0 and 1-2 respectively and Thai Premier League Attaphol lead Buriram end 4th for table with win 2012 Thai FA Cup and 2012 Thai League Cup . Bangkok Glass . In 2013 , he moved from Buriram United to Bangkok Glass F.C. . Personal life . Attaphols sons , Wannaphon Buspakom and Kanokpon Buspakom , are professional footballers . Honours . Player . Thai Port - Kor Royal Cup - Winners ( 2 ) : 1985 , 1990 Pahang FA - Malaysia Super League - Champions ( 1 ) : 1995 Thailand - Sea Games - Gold Medal ( 1 ) ; 1993 - Silver Medal ( 1 ) ; 1991 Manager . BEC Tero Sasana - AFC Champions League - Runner-up ( 1 ) : 2002-03 - ASEAN Club Championship - Runner-up ( 1 ) : 2003 Muangthong United - Thai Premier League - Champions ( 1 ) : 2009 Buriram United - Thai Premier League - Champions ( 1 ) : 2011 - Thai FA Cup - Winners ( 2 ) : 2011 , 2012 - Thai League Cup - Winners ( 2 ) : 2011 , 2012 - Toyota Premier Cup - Winner ( 1 ) : 2011 - Kor Royal Cup - Winner ( 1 ) : 2013 Individual - Thai Premier League Coach of the Year ( 3 ) : 2001-02 , 2009 , 2013 External links . - Profile at Goal"}
+```
+
+Reference Document List (Each entry starts with a [reference_id] that corresponds to entries in the Document Chunks):
+
+```
+
+```
+
+
+--- END CONTEXT ---
+
+Processed Targets: ['Port F.C', 'Thailand national football team']
+Original EM: 0, F1: 0.5714
+Corrected EM: 1.0, F1: 1.0000
+=================
+
+2025-11-15 14:13:33,488 - INFO - Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': './lightrag_test_hard_temp/test_4_1763216010/vdb_entities.json'} 0 data
+2025-11-15 14:13:33,488 - INFO - Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': './lightrag_test_hard_temp/test_4_1763216010/vdb_relationships.json'} 0 data
+2025-11-15 14:13:33,488 - INFO - Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': './lightrag_test_hard_temp/test_4_1763216010/vdb_chunks.json'} 0 data
+2025-11-15 14:13:40,750 - INFO - 
+===== ENTRY 4 ===== (CONTAINMENT CORRECTED)
+❌✅ [INCORRECT -> CORRECT] ID: /wiki/Attaphol_Buspakom#P54#3
+Question: Which team did Attaphol Buspakom play for between Mar 1995 and Dec 1995?
+Prediction: provided, Attaphol Buspakom played for Pahang FA between Mar
+
+--- RETRIEVED CONTEXT (debug) ---
+
+Knowledge Graph Data (Entity):
+
+```json
+{"entity": "Attaphol Buspakom", "type": "person", "description": "Attaphol Buspakom is a former Thai football player and coach who played for the Thailand national football team and managed several clubs, including Muangthong United and Buriram United.<SEP>Attaphol Buspakom is a Thai footballer and manager who led Buriram United to multiple championships."}
+{"entity": "Thailand national football team", "type": "team", "description": "The Thailand national football team is the national team representing Thailand in international football competitions, where Attaphol Buspakom played between 1985 and 1998."}
+{"entity": "Thai Port FC", "type": "organization", "description": "Thai Port FC is a Thai football club where Attaphol Buspakom began his career in 1985."}
+{"entity": "Pahang FA", "type": "organization", "description": "Pahang FA is a Malaysian football club where Attaphol Buspakom played for two seasons.<SEP>Pahang FA is a Malaysian football club that won the Kor Royal Cup."}
+{"entity": "Authority of Thailand", "type": "organization", "description": "Authority of Thailand is the governing body of Thai football, overseeing Attaphol Buspakom's early career."}
+{"entity": "Bangkok Glass", "type": "organization", "description": "Bangkok Glass is a Thai football club where Attaphol Buspakom played."}
+{"entity": "Malaysia Super League", "type": "competition", "description": "The Malaysia Super League is the top-tier football competition in Malaysia, where Pahang FA competed under Attaphol Buspakom's leadership.<SEP>The Malaysia Super League is the top-tier football league in Malaysia where Pahang FA competed."}
+{"entity": "Malaysia Cup", "type": "competition", "description": "The Malaysia Cup is a domestic football competition in Malaysia, where Pahang FA reached the final under Attaphol Buspakom's management."}
+{"entity": "2011 Thai FA Cup", "type": "competition", "description": "The 2011 Thai FA Cup is a domestic football competition in Thailand, where Buriram United won under Attaphol Buspakom's management."}
+{"entity": "Thai Premier League Coach of the Year", "type": "UNKNOWN", "description": "Attaphol Buspakom received the Thai Premier League Coach of the Year award three times."}
+{"entity": "Wannaphon Buspakom", "type": "person", "description": "Wannaphon Buspakom is the son of Attaphol Buspakom and a professional footballer."}
+{"entity": "Kor Royal Cup", "type": "UNKNOWN", "description": "Thai Port won the Kor Royal Cup in 1985 and 1990."}
+{"entity": "Thai Port", "type": "UNKNOWN", "description": "Thai Port won the Kor Royal Cup in 1985 and 1990."}
+{"entity": "FC Stock Exchange of Thailand", "type": "organization", "description": "FC Stock Exchange of Thailand is a Thai football club where Attaphol Buspakom ended his playing career."}
+{"entity": "Muangthong United", "type": "organization", "description": "Muangthong United is a Thai football club that won the Thai Premier League under Attaphol's management.<SEP>Muangthong United is a Thai football club managed by Attaphol Buspakom."}
+{"entity": "BEC Tero Sasana F.C.", "type": "organization", "description": "BEC Tero Sasana F.C. is a Thai football club where Attaphol Buspakom started his coaching career in 2001."}
+{"entity": "Thai Premier League Coach of the Year (3): 2001-02, 2009, 2013", "type": "category", "description": "Attaphol Buspakom was awarded the Thai Premier League Coach of the Year award three times."}
+{"entity": "2011 Thai League Cup", "type": "competition", "description": "The 2011 Thai League Cup is a domestic football competition in Thailand, where Buriram United won under Attaphol Buspakom's leadership."}
+{"entity": "BEC Tero Sasana", "type": "organization", "description": "BEC Tero Sasana is a Thai football club managed by Attaphol Buspakom."}
+{"entity": "Thai Premier League", "type": "competition", "description": "The Thai Premier League is the top-tier football league in Thailand where Buriram United competed.<SEP>The Thai Premier League is the top-tier football competition in Thailand, where Muangthong United and Buriram United competed under Attaphol Buspakom's leadership."}
+{"entity": "Malaysia FA Cup", "type": "competition", "description": "The Malaysia FA Cup is a domestic football competition in Malaysia, where Pahang FA reached the final under Attaphol Buspakom's leadership."}
+{"entity": "Buriram United", "type": "organization", "description": "Buriram United is a Thai football club that won several titles under Attaphol's leadership."}
+{"entity": "Thai FA Cup", "type": "category", "description": "The Thai FA Cup is a domestic football cup competition won by Buriram United under Attaphol's management."}
+{"entity": "Tak", "type": "person", "description": "Tak is a nickname for Attaphol Buspakom."}
+{"entity": "FIFA World Cup", "type": "event", "description": "The FIFA World Cup is a global football tournament where Attaphol Buspakom played several qualifying matches with the Thailand national team."}
+{"entity": "Tianhe Stadium", "type": "location", "description": "Tianhe Stadium is the venue where Buriram United played against Guangzhou.<SEP>The Tianhe Stadium is a venue in China where Buriram United played against Guangzhou Evergrande F.C. under Attaphol Buspakom's management."}
+{"entity": "Thai League Cup", "type": "category", "description": "The Thai League Cup is a domestic football cup competition won by Buriram United under Attaphol's management."}
+{"entity": "Thai FA Cup Winners (2): 1985, 1990", "type": "category", "description": "The Thai FA Cup is a domestic football cup competition won by Thai Port."}
+{"entity": "Kor Royal Cup Winners (2): 1985, 1990", "type": "category", "description": "The Kor Royal Cup is a domestic football cup competition won by Thai Port and Pahang FA."}
+{"entity": "ASEAN Club Championship Runner-up (1): 2003", "type": "category", "description": "The ASEAN Club Championship is a regional football club competition where BEC Tero Sasana competed."}
+{"entity": "Kor Royal Cup Winner (1): 2013", "type": "category", "description": "The Kor Royal Cup is a domestic football cup competition won by Buriram United."}
+{"entity": "Guangzhou", "type": "location", "description": "Guangzhou is a city in China where Buriram United played against Guangzhou."}
+{"entity": "Toyota Premier Cup Winner (1): 2011", "type": "category", "description": "The Toyota Premier Cup is a domestic football cup competition won by Buriram United."}
+{"entity": "Kashiwa Reysol", "type": "organization", "description": "Kashiwa Reysol is a Japanese football club that competed against Buriram United."}
+{"entity": "Jeonbuk Hyundai Motors", "type": "organization", "description": "Jeonbuk Hyundai Motors is a South Korean football club that defeated Buriram United in the championship."}
+{"entity": "China", "type": "location", "description": "China is a country where Kashiwa Reysol's opponent Guangzhou is located."}
+{"entity": "Japan", "type": "location", "description": "Japan is the country where Kashiwa Reysol is based."}
+```
+
+Knowledge Graph Data (Relationship):
+
+```json
+{"entity1": "Attaphol Buspakom", "entity2": "Thai Port FC", "description": "Attaphol Buspakom began his career as a player at Thai Port FC."}
+{"entity1": "Attaphol Buspakom", "entity2": "Authority of Thailand", "description": "Authority of Thailand is the governing body overseeing Attaphol Buspakom's early career."}
+{"entity1": "Attaphol Buspakom", "entity2": "Pahang FA", "description": "Attaphol Buspakom played for Pahang FA in Malaysia."}
+{"entity1": "Attaphol Buspakom", "entity2": "Malaysia Super League", "description": "Pahang FA competed in the Malaysia Super League under Attaphol Buspakom's leadership."}
+{"entity1": "Attaphol Buspakom", "entity2": "Malaysia Cup", "description": "Pahang FA reached the final of the Malaysia Cup under Attaphol Buspakom's management."}
+{"entity1": "Attaphol Buspakom", "entity2": "Thai Premier League Coach of the Year", "description": "Attaphol Buspakom received the Thai Premier League Coach of the Year award three times."}
+{"entity1": "Kor Royal Cup", "entity2": "Thai Port", "description": "Thai Port won the Kor Royal Cup in 1985 and 1990."}
+```
+
+Document Chunks (Each entry has a reference_id refer to the `Reference Document List`):
+
+```json
+{"reference_id": "", "content": "Attaphol Buspakom Attaphol Buspakom ( ; ) , nicknamed Tak ( ; ) ; 1 October 1962 – 16 April 2015 ) was a Thai national and football coach . He was given the role at Muangthong United and Buriram United after TTM Samut Sakhon folded after the 2009 season . He played for the Thailand national football team , appearing in several FIFA World Cup qualifying matches . Club career . Attaphol began his career as a player at Thai Port FC Authority of Thailand in 1985 . In his first year , he won his first championship with the club . He played for the club until 1989 and in 1987 also won the Queens Cup . He then moved to Malaysia for two seasons for Pahang FA , then return to Thailand to his former club . His time from 1991 to 1994 was marked by less success than in his first stay at Port Authority . From 1994 to 1996 he played for Pahang again and this time he was able to win with the club , the Malaysia Super League and also reached the final of the Malaysia Cup and the Malaysia FA Cup . Both cup finals but lost . Back in Thailand , he let end his playing career at FC Stock Exchange of Thailand , with which he once again runner-up in 1996-97 . In 1998 , he finished his career . International career . For the Thailand national football team Attaphol played between 1985 and 1998 a total of 85 games and scored 13 results . In 1992 , he participated with the team in the finals of the Asian Cup . He also stood in various cadres to qualifications to FIFA World Cup . Coaching career . Bec Tero Sasana . In BEC Tero Sasana F.C . began his coaching career in 2001 for him , first as assistant coach . He took over the reigning champions of the Thai League T1 , after his predecessor Pichai Pituwong resigned from his post . It was his first coach station and he had the difficult task of leading the club through the new AFC Champions League . He could accomplish this task with flying colors and even led the club to the finals . The finale , then still played in home and away matches , was lost with 1:2 at the end against Al Ain FC . Attaphol is and was next to Charnwit Polcheewin the only coach who managed a club from Thailand to lead to the final of the AFC Champions League . 2002-03 and 2003-04 he won with the club also two runner-up . In his team , which reached the final of the Champions League , were a number of exceptional players like Therdsak Chaiman , Worrawoot Srimaka , Dusit Chalermsan and Anurak Srikerd . Geylang United / Krung Thai Bank . In 2006 , he went to Singapore in the S-League to Geylang United He was released after a few months due to lack of success . In 2008 , he took over as coach at Krung Thai Bank F.C. , where he had almost a similar task , as a few years earlier by BEC-Tero . As vice-champion of the club was also qualified for the AFC Champions League . However , he failed to lead the team through the group stage of the season 2008 and beyond . With the Kashima Antlers of Japan and Beijing Guoan F.C . athletic competition was too great . One of the highlights was put under his leadership , yet the club . In the group match against the Vietnam club Nam Dinh F.C . his team won with 9-1 , but also lost four weeks later with 1-8 against Kashima Antlers . At the end of the National Football League season , he reached the Krung Thai 6th Table space . The Erstligalizenz the club was sold at the end of the season at the Bangkok Glass F.C. . Attaphol finished his coaching career with the club and accepted an offer of TTM Samutsakorn . After only a short time in office Muangthong United . In 2009 , he received an offer from Muangthong United F.C. , which he accepted and changed . He can champion Muang Thong United for 2009 Thai Premier League and Attaphol won Coach of The year for Thai Premier League and he was able to lead Muang Thong United to play AFC Champions League qualifying play-off for the first in the clubs history . Buriram United . In 2010 Buspakom moved from Muangthong United to Buriram United F.C. . He received Coach of the Month in Thai Premier League 2 time in June and October . In 2011 , he led Buriram United win 2011 Thai Premier League second time for club and set a record with the most points in the Thai League T1 for 85 point and He led Buriram win 2011 Thai FA Cup by beat Muangthong United F.C . 1-0 and he led Buriram win 2011 Thai League Cup by beat Thai Port F.C . 2-0 . In 2012 , he led Buriram United to the 2012 AFC Champions League group stage . Buriram along with Guangzhou Evergrande F.C . from China , Kashiwa Reysol from Japan and Jeonbuk Hyundai Motors which are all champions from their country . In the first match of Buriram they beat Kashiwa 3-2 and Second Match they beat Guangzhou 1-2 at the Tianhe Stadium . Before losing to Jeonbuk 0-2 and 3-2 with lose Kashiwa and Guangzhou 1-0 and 1-2 respectively and Thai Premier League Attaphol lead"}
+{"reference_id": "", "content": "ande F.C . from China , Kashiwa Reysol from Japan and Jeonbuk Hyundai Motors which are all champions from their country . In the first match of Buriram they beat Kashiwa 3-2 and Second Match they beat Guangzhou 1-2 at the Tianhe Stadium . Before losing to Jeonbuk 0-2 and 3-2 with lose Kashiwa and Guangzhou 1-0 and 1-2 respectively and Thai Premier League Attaphol lead Buriram end 4th for table with win 2012 Thai FA Cup and 2012 Thai League Cup . Bangkok Glass . In 2013 , he moved from Buriram United to Bangkok Glass F.C. . Personal life . Attaphols sons , Wannaphon Buspakom and Kanokpon Buspakom , are professional footballers . Honours . Player . Thai Port - Kor Royal Cup - Winners ( 2 ) : 1985 , 1990 Pahang FA - Malaysia Super League - Champions ( 1 ) : 1995 Thailand - Sea Games - Gold Medal ( 1 ) ; 1993 - Silver Medal ( 1 ) ; 1991 Manager . BEC Tero Sasana - AFC Champions League - Runner-up ( 1 ) : 2002-03 - ASEAN Club Championship - Runner-up ( 1 ) : 2003 Muangthong United - Thai Premier League - Champions ( 1 ) : 2009 Buriram United - Thai Premier League - Champions ( 1 ) : 2011 - Thai FA Cup - Winners ( 2 ) : 2011 , 2012 - Thai League Cup - Winners ( 2 ) : 2011 , 2012 - Toyota Premier Cup - Winner ( 1 ) : 2011 - Kor Royal Cup - Winner ( 1 ) : 2013 Individual - Thai Premier League Coach of the Year ( 3 ) : 2001-02 , 2009 , 2013 External links . - Profile at Goal"}
+```
+
+Reference Document List (Each entry starts with a [reference_id] that corresponds to entries in the Document Chunks):
+
+```
+
+```
+
+
+--- END CONTEXT ---
+
+Processed Targets: ['Pahang FA', 'Thailand national football team']
+Original EM: 0, F1: 0.3636
+Corrected EM: 1.0, F1: 1.0000
+=================
+
+2025-11-15 14:13:42,763 - INFO - Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': './lightrag_test_hard_temp/test_5_1763216020/vdb_entities.json'} 0 data
+2025-11-15 14:13:42,763 - INFO - Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': './lightrag_test_hard_temp/test_5_1763216020/vdb_relationships.json'} 0 data
+2025-11-15 14:13:42,763 - INFO - Init {'embedding_dim': 1024, 'metric': 'cosine', 'storage_file': './lightrag_test_hard_temp/test_5_1763216020/vdb_chunks.json'} 0 data
+2025-11-15 14:13:49,372 - INFO - 
+===== ENTRY 5 =====
+❌ [INCORRECT] ID: /wiki/Attaphol_Buspakom#P54#4
+Question: Which team did Attaphol Buspakom play for after Jan 1996?
+Prediction: provided, Attaphol Buspakom played for Pahang FA from
+
+--- RETRIEVED CONTEXT (debug) ---
+
+Knowledge Graph Data (Entity):
+
+```json
+{"entity": "Attaphol Buspakom", "type": "person", "description": "Attaphol Buspakom is a former Thai football player and coach who played for the Thailand national football team and managed several clubs, including Muangthong United and Buriram United.<SEP>Attaphol Buspakom is a Thai footballer and manager who led Buriram United to multiple championships."}
+{"entity": "Thailand national football team", "type": "team", "description": "The Thailand national football team is the national team representing Thailand in international football competitions, where Attaphol Buspakom played between 1985 and 1998."}
+{"entity": "Thai Port FC", "type": "organization", "description": "Thai Port FC is a Thai football club where Attaphol Buspakom began his career in 1985."}
+{"entity": "Pahang FA", "type": "organization", "description": "Pahang FA is a Malaysian football club where Attaphol Buspakom played for two seasons.<SEP>Pahang FA is a Malaysian football club that won the Kor Royal Cup."}
+{"entity": "Authority of Thailand", "type": "organization", "description": "Authority of Thailand is the governing body of Thai football, overseeing Attaphol Buspakom's early career."}
+{"entity": "Bangkok Glass", "type": "organization", "description": "Bangkok Glass is a Thai football club where Attaphol Buspakom played."}
+{"entity": "Malaysia Super League", "type": "category", "description": "The Malaysia Super League is the top-tier football competition in Malaysia, where Pahang FA competed under Attaphol Buspakom's leadership.<SEP>The Malaysia Super League is the top-tier football league in Malaysia where Pahang FA competed."}
+{"entity": "Malaysia Cup", "type": "competition", "description": "The Malaysia Cup is a domestic football competition in Malaysia, where Pahang FA reached the final under Attaphol Buspakom's management."}
+{"entity": "Muangthong United", "type": "organization", "description": "Muangthong United is a Thai football club that won the Thai Premier League under Attaphol's management.<SEP>Muangthong United is a Thai football club managed by Attaphol Buspakom."}
+{"entity": "Thai Premier League Coach of the Year", "type": "UNKNOWN", "description": "Attaphol Buspakom received the Thai Premier League Coach of the Year award three times."}
+{"entity": "Kor Royal Cup", "type": "UNKNOWN", "description": "Thai Port won the Kor Royal Cup in 1985 and 1990."}
+{"entity": "Wannaphon Buspakom", "type": "person", "description": "Wannaphon Buspakom is the son of Attaphol Buspakom and a professional footballer."}
+{"entity": "Thai Port", "type": "UNKNOWN", "description": "Thai Port won the Kor Royal Cup in 1985 and 1990."}
+{"entity": "FC Stock Exchange of Thailand", "type": "organization", "description": "FC Stock Exchange of Thailand is a Thai football club where Attaphol Buspakom ended his playing career."}
+{"entity": "2011 Thai FA Cup", "type": "competition", "description": "The 2011 Thai FA Cup is a domestic football competition in Thailand, where Buriram United won under Attaphol Buspakom's management."}
+{"entity": "Thai Premier League Coach of the Year (3): 2001-02, 2009, 2013", "type": "category", "description": "Attaphol Buspakom was awarded the Thai Premier League Coach of the Year award three times."}
+{"entity": "BEC Tero Sasana F.C.", "type": "organization", "description": "BEC Tero Sasana F.C. is a Thai football club where Attaphol Buspakom started his coaching career in 2001."}
+{"entity": "Thai Premier League", "type": "category", "description": "The Thai Premier League is the top-tier football league in Thailand where Buriram United competed.<SEP>The Thai Premier League is the top-tier football competition in Thailand, where Muangthong United and Buriram United competed under Attaphol Buspakom's leadership."}
+{"entity": "BEC Tero Sasana", "type": "organization", "description": "BEC Tero Sasana is a Thai football club managed by Attaphol Buspakom."}
+{"entity": "Tak", "type": "person", "description": "Tak is a nickname for Attaphol Buspakom."}
+{"entity": "2011 Thai League Cup", "type": "competition", "description": "The 2011 Thai League Cup is a domestic football competition in Thailand, where Buriram United won under Attaphol Buspakom's leadership."}
+{"entity": "Buriram United", "type": "organization", "description": "Buriram United is a Thai football club that won several titles under Attaphol's leadership."}
+{"entity": "Thai FA Cup", "type": "category", "description": "The Thai FA Cup is a domestic football cup competition won by Buriram United under Attaphol's management."}
+{"entity": "Malaysia FA Cup", "type": "competition", "description": "The Malaysia FA Cup is a domestic football competition in Malaysia, where Pahang FA reached the final under Attaphol Buspakom's leadership."}
+{"entity": "FIFA World Cup", "type": "event", "description": "The FIFA World Cup is a global football tournament where Attaphol Buspakom played several qualifying matches with the Thailand national team."}
+{"entity": "Thai League Cup", "type": "category", "description": "The Thai League Cup is a domestic football cup competition won by Buriram United under Attaphol's management."}
+{"entity": "Tianhe Stadium", "type": "location", "description": "Tianhe Stadium is the venue where Buriram United played against Guangzhou.<SEP>The Tianhe Stadium is a venue in China where Buriram United played against Guangzhou Evergrande F.C. under Attaphol Buspakom's management."}
+{"entity": "Thai FA Cup Winners (2): 1985, 1990", "type": "category", "description": "The Thai FA Cup is a domestic football cup competition won by Thai Port."}
+{"entity": "Kor Royal Cup Winners (2): 1985, 1990", "type": "category", "description": "The Kor Royal Cup is a domestic football cup competition won by Thai Port and Pahang FA."}
+{"entity": "Kor Royal Cup Winner (1): 2013", "type": "category", "description": "The Kor Royal Cup is a domestic football cup competition won by Buriram United."}
+{"entity": "ASEAN Club Championship Runner-up (1): 2003", "type": "category", "description": "The ASEAN Club Championship is a regional football club competition where BEC Tero Sasana competed."}
+{"entity": "Guangzhou", "type": "location", "description": "Guangzhou is a city in China where Buriram United played against Guangzhou."}
+{"entity": "Toyota Premier Cup Winner (1): 2011", "type": "category", "description": "The Toyota Premier Cup is a domestic football cup competition won by Buriram United."}
+{"entity": "Kashiwa Reysol", "type": "organization", "description": "Kashiwa Reysol is a Japanese football club that competed against Buriram United."}
+{"entity": "Jeonbuk Hyundai Motors", "type": "organization", "description": "Jeonbuk Hyundai Motors is a South Korean football club that defeated Buriram United in the championship."}
+{"entity": "China", "type": "location", "description": "China is a country where Kashiwa Reysol's opponent Guangzhou is located."}
+{"entity": "Japan", "type": "location", "description": "Japan is the country where Kashiwa Reysol is based."}
+```
+
+Knowledge Graph Data (Relationship):
+
+```json
+{"entity1": "Attaphol Buspakom", "entity2": "Thai Premier League Coach of the Year", "description": "Attaphol Buspakom received the Thai Premier League Coach of the Year award three times."}
+{"entity1": "Attaphol Buspakom", "entity2": "Thai Port FC", "description": "Attaphol Buspakom began his career as a player at Thai Port FC."}
+{"entity1": "Attaphol Buspakom", "entity2": "Pahang FA", "description": "Attaphol Buspakom played for Pahang FA in Malaysia."}
+{"entity1": "Attaphol Buspakom", "entity2": "Authority of Thailand", "description": "Authority of Thailand is the governing body overseeing Attaphol Buspakom's early career."}
+{"entity1": "Attaphol Buspakom", "entity2": "Malaysia Super League", "description": "Pahang FA competed in the Malaysia Super League under Attaphol Buspakom's leadership."}
+{"entity1": "Attaphol Buspakom", "entity2": "Malaysia Cup", "description": "Pahang FA reached the final of the Malaysia Cup under Attaphol Buspakom's management."}
+{"entity1": "Kor Royal Cup", "entity2": "Thai Port", "description": "Thai Port won the Kor Royal Cup in 1985 and 1990."}
+```
+
+Document Chunks (Each entry has a reference_id refer to the `Reference Document List`):
+
+```json
+{"reference_id": "", "content": "Attaphol Buspakom Attaphol Buspakom ( ; ) , nicknamed Tak ( ; ) ; 1 October 1962 – 16 April 2015 ) was a Thai national and football coach . He was given the role at Muangthong United and Buriram United after TTM Samut Sakhon folded after the 2009 season . He played for the Thailand national football team , appearing in several FIFA World Cup qualifying matches . Club career . Attaphol began his career as a player at Thai Port FC Authority of Thailand in 1985 . In his first year , he won his first championship with the club . He played for the club until 1989 and in 1987 also won the Queens Cup . He then moved to Malaysia for two seasons for Pahang FA , then return to Thailand to his former club . His time from 1991 to 1994 was marked by less success than in his first stay at Port Authority . From 1994 to 1996 he played for Pahang again and this time he was able to win with the club , the Malaysia Super League and also reached the final of the Malaysia Cup and the Malaysia FA Cup . Both cup finals but lost . Back in Thailand , he let end his playing career at FC Stock Exchange of Thailand , with which he once again runner-up in 1996-97 . In 1998 , he finished his career . International career . For the Thailand national football team Attaphol played between 1985 and 1998 a total of 85 games and scored 13 results . In 1992 , he participated with the team in the finals of the Asian Cup . He also stood in various cadres to qualifications to FIFA World Cup . Coaching career . Bec Tero Sasana . In BEC Tero Sasana F.C . began his coaching career in 2001 for him , first as assistant coach . He took over the reigning champions of the Thai League T1 , after his predecessor Pichai Pituwong resigned from his post . It was his first coach station and he had the difficult task of leading the club through the new AFC Champions League . He could accomplish this task with flying colors and even led the club to the finals . The finale , then still played in home and away matches , was lost with 1:2 at the end against Al Ain FC . Attaphol is and was next to Charnwit Polcheewin the only coach who managed a club from Thailand to lead to the final of the AFC Champions League . 2002-03 and 2003-04 he won with the club also two runner-up . In his team , which reached the final of the Champions League , were a number of exceptional players like Therdsak Chaiman , Worrawoot Srimaka , Dusit Chalermsan and Anurak Srikerd . Geylang United / Krung Thai Bank . In 2006 , he went to Singapore in the S-League to Geylang United He was released after a few months due to lack of success . In 2008 , he took over as coach at Krung Thai Bank F.C. , where he had almost a similar task , as a few years earlier by BEC-Tero . As vice-champion of the club was also qualified for the AFC Champions League . However , he failed to lead the team through the group stage of the season 2008 and beyond . With the Kashima Antlers of Japan and Beijing Guoan F.C . athletic competition was too great . One of the highlights was put under his leadership , yet the club . In the group match against the Vietnam club Nam Dinh F.C . his team won with 9-1 , but also lost four weeks later with 1-8 against Kashima Antlers . At the end of the National Football League season , he reached the Krung Thai 6th Table space . The Erstligalizenz the club was sold at the end of the season at the Bangkok Glass F.C. . Attaphol finished his coaching career with the club and accepted an offer of TTM Samutsakorn . After only a short time in office Muangthong United . In 2009 , he received an offer from Muangthong United F.C. , which he accepted and changed . He can champion Muang Thong United for 2009 Thai Premier League and Attaphol won Coach of The year for Thai Premier League and he was able to lead Muang Thong United to play AFC Champions League qualifying play-off for the first in the clubs history . Buriram United . In 2010 Buspakom moved from Muangthong United to Buriram United F.C. . He received Coach of the Month in Thai Premier League 2 time in June and October . In 2011 , he led Buriram United win 2011 Thai Premier League second time for club and set a record with the most points in the Thai League T1 for 85 point and He led Buriram win 2011 Thai FA Cup by beat Muangthong United F.C . 1-0 and he led Buriram win 2011 Thai League Cup by beat Thai Port F.C . 2-0 . In 2012 , he led Buriram United to the 2012 AFC Champions League group stage . Buriram along with Guangzhou Evergrande F.C . from China , Kashiwa Reysol from Japan and Jeonbuk Hyundai Motors which are all champions from their country . In the first match of Buriram they beat Kashiwa 3-2 and Second Match they beat Guangzhou 1-2 at the Tianhe Stadium . Before losing to Jeonbuk 0-2 and 3-2 with lose Kashiwa and Guangzhou 1-0 and 1-2 respectively and Thai Premier League Attaphol lead"}
+{"reference_id": "", "content": "ande F.C . from China , Kashiwa Reysol from Japan and Jeonbuk Hyundai Motors which are all champions from their country . In the first match of Buriram they beat Kashiwa 3-2 and Second Match they beat Guangzhou 1-2 at the Tianhe Stadium . Before losing to Jeonbuk 0-2 and 3-2 with lose Kashiwa and Guangzhou 1-0 and 1-2 respectively and Thai Premier League Attaphol lead Buriram end 4th for table with win 2012 Thai FA Cup and 2012 Thai League Cup . Bangkok Glass . In 2013 , he moved from Buriram United to Bangkok Glass F.C. . Personal life . Attaphols sons , Wannaphon Buspakom and Kanokpon Buspakom , are professional footballers . Honours . Player . Thai Port - Kor Royal Cup - Winners ( 2 ) : 1985 , 1990 Pahang FA - Malaysia Super League - Champions ( 1 ) : 1995 Thailand - Sea Games - Gold Medal ( 1 ) ; 1993 - Silver Medal ( 1 ) ; 1991 Manager . BEC Tero Sasana - AFC Champions League - Runner-up ( 1 ) : 2002-03 - ASEAN Club Championship - Runner-up ( 1 ) : 2003 Muangthong United - Thai Premier League - Champions ( 1 ) : 2009 Buriram United - Thai Premier League - Champions ( 1 ) : 2011 - Thai FA Cup - Winners ( 2 ) : 2011 , 2012 - Thai League Cup - Winners ( 2 ) : 2011 , 2012 - Toyota Premier Cup - Winner ( 1 ) : 2011 - Kor Royal Cup - Winner ( 1 ) : 2013 Individual - Thai Premier League Coach of the Year ( 3 ) : 2001-02 , 2009 , 2013 External links . - Profile at Goal"}
+```
+
+Reference Document List (Each entry starts with a [reference_id] that corresponds to entries in the Document Chunks):
+
+```
+
+```
+
+
+--- END CONTEXT ---
+
+Processed Targets: ['Thailand national football team']
+Original EM: 0, F1: 0.0000
+Corrected EM: 0, F1: 0.0000
+=================
+
+2025-11-15 14:13:50,998 - INFO - 
+============================================================
+[COMPLETED] Final results: Total=5
+Model: LightRAG with custom LlamaQAModel
+Embedding Model: BAAI/bge-large-en-v1.5, Dimension: 1024
+Query Mode: hybrid
+Original Scores: EM=0.00%, F1=25.37%
+Corrected Scores: EM=60.00%, F1=60.00%
+Improvement: EM +60.00%, F1 +34.63%
+Log file saved to: ./logs/test.hard_2025-11-15T14-11-20_013824_lightrag_log.txt
+============================================================

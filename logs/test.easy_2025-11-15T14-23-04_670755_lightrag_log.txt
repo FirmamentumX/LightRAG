@@ -1,0 +1,768 @@
+2025-11-15 14:35:39,819 - INFO - 
+============================================================
+[COMPLETED] Final results: Total=26
+Model: LightRAG with custom LlamaQAModel
+Embedding Model: BAAI/bge-large-en-v1.5, Dimension: 1024
+Query Mode: hybrid
+Original Scores: EM=57.69%, F1=71.97%
+Corrected Scores: EM=61.54%, F1=72.74%
+Improvement: EM +3.85%, F1 +0.77%
+Log file saved to: ./logs/test.easy_2025-11-15T14-23-04_670755_lightrag_log.txt
+============================================================
+2025-11-15 14:35:39,820 - ERROR - Task exception was never retrieved
+future: <Task finished name='Task-25640' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() done, defined at /root/LightRAG/lightrag/utils.py:533> exception=SystemExit(1)>
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py", line 434, in wait_for
+    await waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/LightRAG/atc.py", line 668, in <module>
+    interrupted = evaluate_dataset(test_file)
+  File "/root/LightRAG/atc.py", line 550, in evaluate_dataset
+    return asyncio.run(evaluate_dataset_async(file_path))
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/runners.py", line 47, in run
+    _cancel_all_tasks(loop)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/runners.py", line 63, in _cancel_all_tasks
+    loop.run_until_complete(tasks.gather(*to_cancel, return_exceptions=True))
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/base_events.py", line 628, in run_until_complete
+    self.run_forever()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/base_events.py", line 595, in run_forever
+    self._run_once()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/base_events.py", line 1881, in _run_once
+    handle._run()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/root/LightRAG/lightrag/utils.py", line 575, in worker
+    result = await asyncio.wait_for(
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py", line 437, in wait_for
+    return fut.result()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/base_events.py", line 628, in run_until_complete
+    self.run_forever()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/base_events.py", line 595, in run_forever
+    self._run_once()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/base_events.py", line 1881, in _run_once
+    handle._run()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/root/LightRAG/lightrag/llm/hf.py", line 141, in hf_model_complete
+    result = await hf_model_if_cache(
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/tenacity/__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/concurrent/futures/_base.py", line 438, in result
+    return self.__get_result()
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/concurrent/futures/_base.py", line 390, in __get_result
+    raise self._exception
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+  File "/root/LightRAG/lightrag/llm/hf.py", line 117, in hf_model_if_cache
+    output = hf_model.generate(
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/transformers/generation/utils.py", line 2564, in generate
+    result = decoding_method(
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/transformers/generation/utils.py", line 2779, in _sample
+    while self._has_unfinished_sequences(this_peer_finished, synced_gpus, device=input_ids.device):
+  File "/root/miniconda3/envs/lightrag/lib/python3.10/site-packages/transformers/generation/utils.py", line 2597, in _has_unfinished_sequences
+    elif this_peer_finished:
+  File "/root/LightRAG/atc.py", line 638, in signal_handler
+    sys.exit(1)
+SystemExit: 1
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15942' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-13218' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15943' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1597' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3139' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-13219' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15944' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-739' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1954' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3704' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-13220' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15945' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1599' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3138' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15946' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1598' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3703' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15947' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3146' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5046' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-13605' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-366' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,822 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3145' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5045' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-13604' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-747' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3144' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5047' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3143' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-746' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3142' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2715' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1950' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-19255' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-745' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-20107' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-744' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2944' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15961' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-743' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14995' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15962' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-741' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5049' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14994' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15963' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-742' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,823 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5048' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14996' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15964' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-740' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5309' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15965' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15410' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-25639' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:575> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2106' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14086' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-25638' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:575> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2105' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3702' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14092' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-25637' coro=<extract_entities.<locals>._process_with_semaphore() running at /root/LightRAG/lightrag/operate.py:2932> wait_for=<Future cancelled> cb=[_wait.<locals>._on_completion() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:479, gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2104' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-639' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14093' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-25636' coro=<extract_entities.<locals>._process_with_semaphore() running at /root/LightRAG/lightrag/operate.py:2932> wait_for=<Future cancelled> cb=[_wait.<locals>._on_completion() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:479, gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2102' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-25635' coro=<extract_entities.<locals>._process_with_semaphore() running at /root/LightRAG/lightrag/operate.py:2932> wait_for=<Future cancelled> cb=[_wait.<locals>._on_completion() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:479, gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2103' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-4522' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14085' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,824 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-20992' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1047' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2101' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-18127' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1048' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5313' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-13212' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-4774' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-22791' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-4525' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-18128' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-4523' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14090' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-18129' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14091' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3701' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-18130' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-7033' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1046' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-7035' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14088' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-18131' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-7601' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14089' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-18132' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,825 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1145' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5731' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-18133' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-358' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2099' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-7032' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-19253' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2098' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3709' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-7602' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-359' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2100' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3708' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5732' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-19252' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-360' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3707' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5736' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-361' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2943' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3706' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14488' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3705' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-19251' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2119' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,826 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1476' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2120' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1475' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2121' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1474' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2122' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-4773' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5739' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14489' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1473' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2123' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3387' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5738' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1144' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5737' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-13603' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-4524' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-19254' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1152' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-7034' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3386' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1151' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15407' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3389' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1150' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,827 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2946' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3388' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-20995' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1149' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5310' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-643' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2945' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3722' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5312' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2707' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3723' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-20994' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5311' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2942' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-642' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3724' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15002' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2708' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3725' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-7603' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15001' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2709' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-7036' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-3726' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15000' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,828 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-20115' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2710' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14999' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-20114' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5753' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1477' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1952' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14998' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5754' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-20113' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14997' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-20112' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5755' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1148' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1951' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-20111' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5756' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1147' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-4775' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1953' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-5757' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-20110' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-4777' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-20109' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1146' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,829 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-4776' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2711' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-4517' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15408' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2712' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-4518' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-4519' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8684' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15409' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2713' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-4520' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-7600' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15411' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-2714' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-4521' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-7599' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-20991' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14487' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11958' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8098' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8097' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-22792' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8096' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11119' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8095' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,830 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-22795' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-22793' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10708' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10339' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-21600' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10336' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-21601' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10333' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-21602' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-21603' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8101' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8100' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11124' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8099' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-22794' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8685' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10338' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8686' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10335' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8687' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-25615' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8688' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11116' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10707' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10705' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,831 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10704' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9216' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10337' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10334' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-21597' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10332' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-21599' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-21598' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-21596' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9224' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11117' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-23426' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9223' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11120' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-23427' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-7040' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11123' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-7037' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14486' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-23425' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11937' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-23423' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-23424' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-7039' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-23422' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,832 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11122' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-23421' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-7038' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11118' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11121' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-641' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11961' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-24651' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-640' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9222' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-24654' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9221' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-24652' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-1044' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11960' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-24655' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-33' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9220' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-24653' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11938' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-21595' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11941' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-23420' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,833 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-12' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10331' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11945' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-23419' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-13' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-13602' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-25622' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-14' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9217' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-15' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11505' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-16' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11944' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-17' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9218' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11959' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-18' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9219' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11939' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8094' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11942' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8093' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-13601' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task cancelling name='Task-25634' coro=<LightRAG._process_extract_entities() running at /root/LightRAG/lightrag/lightrag.py:2107> wait_for=<Future cancelled> cb=[Task.task_wakeup(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11501' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,834 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9237' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11504' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9238' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-25623' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11502' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-25621' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9239' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-25620' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-32' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9240' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-25619' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-34' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9241' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11940' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-25618' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-35' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11943' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-25617' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-36' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.enhanced_health_check() running at /root/LightRAG/lightrag/utils.py:630> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-25616' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10706' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
+2025-11-15 14:35:39,835 - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-11503' coro=<priority_limit_async_func_call.<locals>.final_decro.<locals>.worker() running at /root/LightRAG/lightrag/utils.py:546> wait_for=<Future cancelled> cb=[set.discard(), gather.<locals>._done_callback() at /root/miniconda3/envs/lightrag/lib/python3.10/asyncio/tasks.py:718]>
