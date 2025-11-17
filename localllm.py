@@ -1,5 +1,6 @@
-from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
 from tenacity import retry, stop_after_attempt, wait_random_exponential
 
 

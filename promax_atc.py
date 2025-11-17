@@ -1,3 +1,6 @@
+# PyTorch必须在其他库之前导入，以避免CUDA初始化问题
+import torch
+
 import json
 import traceback
 import gc
@@ -15,8 +18,7 @@ import time
 import argparse  # 新增，用于处理命令行参数
 from collections import Counter
 from typing import List, Tuple, Any, Optional, Dict
-# PyTorch必须在其他库之前导入，以避免CUDA初始化问题
-import torch
+
 # LightRAG 相关导入
 from lightrag import LightRAG, QueryParam
 from lightrag.utils import EmbeddingFunc
@@ -74,13 +76,39 @@ evaluation_state = {
     "start_time": None  # 记录开始时间，用于计算总耗时
 }
 
+# 定义关键错误异常
+class CriticalError(Exception):
+    """Exception raised for recoverable system errors that require restart"""
+    pass
+
+def is_critical_error(error_str: str) -> bool:
+    """检测是否为需要重启的关键错误"""
+    critical_patterns = [
+        "CUDA error",
+        "AcceleratorError",
+        "out of memory",
+        "device-side assert",
+        "cuDNN error",
+        "NCCL error",
+        "GPU resources exhausted",
+        "Future at",
+        "cannot allocate memory",
+        "CUDA out of memory",
+        "CUDA initialization error",
+        "<Future at",
+        "state=finished raised"
+    ]
+    return any(pattern.lower() in error_str.lower() for pattern in critical_patterns)
+
 # 初始化 LlamaQAModel - 添加错误恢复机制
 try:
     llama_model = LlamaQAModel(model_name="meta-llama/Llama-3.1-8B-Instruct")
     logging.info("LlamaQAModel initialized successfully")
 except Exception as e:
     logging.error(f"Failed to initialize LlamaQAModel: {str(e)}")
-    # 在严重错误时退出
+    # 检查是否为关键错误
+    if is_critical_error(str(e)):
+        raise CriticalError(f"LlamaQAModel initialization failed with restartable error: {str(e)}")
     sys.exit(1)
 
 def normalize_answer(s: str) -> str:
@@ -161,20 +189,33 @@ async def cleanup_torch_resources():
                 reserved = torch.cuda.memory_reserved()
                 logging.debug(f"PyTorch cleanup - Allocated: {allocated/1024**3:.2f}GB, Reserved: {reserved/1024**3:.2f}GB")
             except RuntimeError as e:
-                if "CUDA" in str(e):
-                    logging.warning(f"CUDA error during cleanup, attempting recovery: {str(e)}")
-                    # 对于CUDA错误，尝试更激进的清理
-                    try:
-                        # 强制垃圾回收
-                        gc.collect()
-                        if torch.cuda.is_available():
-                            torch.cuda.empty_cache()
-                    except Exception as recovery_e:
-                        logging.error(f"Failed to recover from CUDA error: {str(recovery_e)}")
-                else:
-                    raise e
+                error_msg = str(e)
+                logging.warning(f"CUDA error during cleanup, attempting recovery: {error_msg}")
+                # 检查是否为关键错误
+                if is_critical_error(error_msg):
+                    logging.critical(f"RESTARTABLE ERROR DETECTED in cleanup: {error_msg}")
+                    raise CriticalError(f"Restartable CUDA cleanup error: {error_msg}")
+                # 对于CUDA错误，尝试更激进的清理
+                try:
+                    # 强制垃圾回收
+                    gc.collect()
+                    if torch.cuda.is_available():
+                        torch.cuda.empty_cache()
+                except Exception as recovery_e:
+                    error_msg = str(recovery_e)
+                    logging.error(f"Failed to recover from CUDA error: {error_msg}")
+                    if is_critical_error(error_msg):
+                        raise CriticalError(f"Restartable CUDA recovery error: {error_msg}")
+            except Exception as e:
+                error_msg = str(e)
+                logging.warning(f"Error during PyTorch resource cleanup: {error_msg}")
+                if is_critical_error(error_msg):
+                    raise CriticalError(f"Restartable cleanup error: {error_msg}")
     except Exception as e:
-        logging.warning(f"Error during PyTorch resource cleanup: {str(e)}")
+        error_msg = str(e)
+        logging.warning(f"Error during PyTorch resource cleanup: {error_msg}")
+        if is_critical_error(error_msg):
+            raise CriticalError(f"Restartable cleanup error: {error_msg}")
 
 async def cleanup_working_directory(directory: str):
     """异步清理单个工作目录"""
@@ -235,7 +276,13 @@ async def cleanup_lightrag_resources(full_cleanup: bool = False):
                     logging.debug(f"Error cancelling task: {e}")
         _lightrag_tasks.clear()
     # 4. 清理PyTorch资源
-    await cleanup_torch_resources()
+    try:
+        await cleanup_torch_resources()
+    except CriticalError:
+        # 关键错误需要向上抛出
+        raise
+    except Exception as e:
+        logging.warning(f"Non-critical error during resource cleanup: {str(e)}")
     # 5. 完整清理时额外清理
     if full_cleanup:
         # 清理旧的工作目录，只保留最新的几个
@@ -301,6 +348,15 @@ async def lightrag_init() -> LightRAG:
         _lightrag_instance = rag
         return rag
     except Exception as e:
+        error_msg = str(e)
+        # 检查是否为关键错误
+        if is_critical_error(error_msg):
+            logging.critical(f"RESTARTABLE ERROR during LightRAG initialization: {error_msg}")
+            # 保存紧急检查点
+            if evaluation_state["total"] > 0:
+                save_checkpoint(evaluation_state["last_processed_line"], evaluation_state)
+            raise CriticalError(f"Restartable initialization error: {error_msg}")
+        
         # 如果初始化失败，清理资源并重新抛出异常
         await cleanup_lightrag_resources()
         logging.error(f"Failed to initialize LightRAG: {str(e)}")
@@ -314,6 +370,8 @@ async def extract_answer_from_response(s: str) -> str:
 async def call_lightrag_with_retry(question: str, context: str, mode: str = DEFAULT_QUERY_MODE, max_retries: int = 2) -> Tuple[str, str]:
     """Get predicted answer from LightRAG model with retry mechanism for CUDA errors."""
     global _lightrag_tasks
+    last_error = ""
+    
     for attempt in range(max_retries + 1):
         # 检查是否需要中断
         if SHUTDOWN_EVENT.is_set():
@@ -340,36 +398,63 @@ async def call_lightrag_with_retry(question: str, context: str, mode: str = DEFA
                 final_answer = final_answer.strip().strip('"').strip("'")
                 return final_answer, context_str
             except Exception as e:
-                logging.error(f"Error generating answer with LlamaQAModel (attempt {attempt+1}/{max_retries+1}): {str(e)}")
+                error_msg = str(e)
+                logging.error(f"Error generating answer with LlamaQAModel (attempt {attempt+1}/{max_retries+1}): {error_msg}")
+                
+                # 检查是否为关键错误
+                if is_critical_error(error_msg):
+                    logging.critical(f"RESTARTABLE ERROR in answer generation: {error_msg}")
+                    raise CriticalError(f"Restartable answer generation error: {error_msg}")
+                
                 if attempt == max_retries:
                     # 最后一次尝试仍然失败
-                    return f"Error: {str(e)}", context_str
+                    return f"Error: {error_msg}", context_str
                 else:
                     # 重试前进行更彻底的清理
                     await cleanup_torch_resources()
                     await asyncio.sleep(1)  # 等待1秒再重试
         except RuntimeError as e:
-            if "CUDA" in str(e) and attempt < max_retries:
-                logging.warning(f"CUDA error detected (attempt {attempt+1}/{max_retries+1}), performing deep cleanup and retrying: {str(e)}")
+            error_msg = str(e)
+            if "CUDA" in error_msg and attempt < max_retries:
+                logging.warning(f"CUDA error detected (attempt {attempt+1}/{max_retries+1}), performing deep cleanup and retrying: {error_msg}")
                 # 对于CUDA错误，进行深度清理
                 await cleanup_lightrag_resources(full_cleanup=True)
                 await asyncio.sleep(2)  # 等待更长时间让CUDA恢复
             else:
                 # 其他RuntimeError或达到最大重试次数
-                logging.error(f"Runtime error in call_lightrag (attempt {attempt+1}/{max_retries+1}): {str(e)}")
+                logging.error(f"Runtime error in call_lightrag (attempt {attempt+1}/{max_retries+1}): {error_msg}")
+                
+                # 检查是否为关键错误
+                if is_critical_error(error_msg):
+                    logging.critical(f"RESTARTABLE ERROR in LightRAG call: {error_msg}")
+                    raise CriticalError(f"Restartable LightRAG error: {error_msg}")
+                
                 if attempt == max_retries:
-                    return f"Runtime Error: {str(e)}", ""
+                    return f"Runtime Error: {error_msg}", ""
                 else:
                     await cleanup_lightrag_resources()
                     await asyncio.sleep(1)
         except Exception as e:
-            logging.error(f"Unexpected error in call_lightrag (attempt {attempt+1}/{max_retries+1}): {str(e)}")
+            error_msg = str(e)
+            logging.error(f"Unexpected error in call_lightrag (attempt {attempt+1}/{max_retries+1}): {error_msg}")
+            last_error = error_msg
+            
+            # 检查是否为关键错误
+            if is_critical_error(error_msg):
+                logging.critical(f"RESTARTABLE ERROR in LightRAG call: {error_msg}")
+                raise CriticalError(f"Restartable LightRAG error: {error_msg}")
+            
             if attempt == max_retries:
-                return f"Error: {str(e)}", ""
+                return f"Error: {error_msg}", ""
             else:
                 await cleanup_lightrag_resources()
                 await asyncio.sleep(1)
+    
     # 所有重试都失败
+    if is_critical_error(last_error):
+        logging.critical(f"RESTARTABLE ERROR after all retries: {last_error}")
+        raise CriticalError(f"Restartable error after all retries: {last_error}")
+    
     return "Error: All retries failed", ""
 
 # 保持向后兼容性
@@ -548,6 +633,12 @@ async def evaluate_dataset_async(file_path: str, start_line: int = 0, initial_st
                         context, 
                         mode=DEFAULT_QUERY_MODE
                     )
+                except CriticalError as ce:
+                    logging.critical(f"RESTARTABLE ERROR at line {line_num}: {str(ce)}")
+                    # 保存当前进度
+                    save_checkpoint(line_num - 1, evaluation_state)  # 保存上一个成功处理的行
+                    await safe_shutdown(exit_code=3)  # 退出码3表示可恢复的关键错误，需要重启
+                    return True
                 except asyncio.CancelledError:
                     logging.info(f"Task cancelled at line {line_num}, preparing to exit")
                     interrupted = True
@@ -623,7 +714,13 @@ async def evaluate_dataset_async(file_path: str, start_line: int = 0, initial_st
                 # 定期内存清理（比磁盘清理频率低）
                 if line_num % MEMORY_CLEANUP_INTERVAL == 0:
                     logging.info(f"Performing memory cleanup after {line_num} samples")
-                    await cleanup_torch_resources()
+                    try:
+                        await cleanup_torch_resources()
+                    except CriticalError as ce:
+                        logging.critical(f"RESTARTABLE ERROR during periodic cleanup: {str(ce)}")
+                        save_checkpoint(line_num - 1, evaluation_state)
+                        await safe_shutdown(exit_code=3)
+                        return True
     except KeyboardInterrupt:
         logging.warning("Evaluation interrupted by user with Ctrl-C.")
         print("\n" + "="*60)
@@ -631,12 +728,22 @@ async def evaluate_dataset_async(file_path: str, start_line: int = 0, initial_st
         print("="*60)
         interrupted = True
         INTERRUPTED = True
+    except CriticalError as ce:
+        logging.critical(f"RESTARTABLE ERROR in main loop: {str(ce)}")
+        save_checkpoint(evaluation_state["last_processed_line"], evaluation_state)
+        await safe_shutdown(exit_code=3)
+        return True
     except Exception as e:
         logging.error(f"Unexpected error: {str(e)}")
         traceback.print_exc()
     finally:
         # 最终清理所有资源
-        await cleanup_lightrag_resources(full_cleanup=True)
+        try:
+            await cleanup_lightrag_resources(full_cleanup=True)
+        except CriticalError:
+            # 关键错误已经处理过了，这里只记录
+            logging.critical("RESTARTABLE ERROR during final cleanup, but shutdown will proceed")
+        
         # 计算分数
         total = evaluation_state["total"]
         if total > 0:
@@ -697,6 +804,9 @@ def evaluate_dataset(file_path: str, start_line: int = 0, initial_state: Optiona
     except KeyboardInterrupt:
         logging.warning("[INTERRUPTED] Evaluation stopped by user (Ctrl-C)")
         return True
+    except CriticalError as ce:
+        logging.critical(f"[RESTARTABLE ERROR] Recoverable error: {str(ce)}")
+        return True
     except Exception as e:
         logging.error(f"Unexpected error in evaluate_dataset: {str(e)}")
         traceback.print_exc()
@@ -705,16 +815,17 @@ def evaluate_dataset(file_path: str, start_line: int = 0, initial_state: Optiona
 async def safe_shutdown(exit_code: int = 1):
     """安全关闭所有资源，确保日志完整写入"""
     global LAST_LOG_PATH, evaluation_state
-    logging.info("Initiating safe shutdown sequence...")
+    logging.info(f"Initiating safe shutdown sequence with exit code {exit_code}...")
     print("\n" + "="*60)
-    print("[SHUTDOWN] Performing safe shutdown...")
+    print(f"[SHUTDOWN] Performing safe shutdown with exit code {exit_code}...")
     print("="*60)
     try:
         # 1. 设置关闭标志
         SHUTDOWN_EVENT.set()
+        
         # 2. 计算当前结果
         total = evaluation_state["total"]
-        if total > 0:
+        if total > 0 and exit_code != 3:  # 如果是重启错误，不需要显示结果
             em_avg = (evaluation_state["em_total"] / total) * 100
             f1_avg = (evaluation_state["f1_total"] / total) * 100
             corrected_em_avg = (evaluation_state["corrected_em_total"] / total) * 100
@@ -729,26 +840,39 @@ async def safe_shutdown(exit_code: int = 1):
             )
             logging.info(shutdown_log)
             print(shutdown_log)
-        # 3. 强制刷新日志
+        
+        # 3. 保存紧急检查点（仅在重启错误时）
+        if exit_code == 3:  # Restartable error
+            logging.critical("RESTARTABLE ERROR: Emergency checkpoint already saved, proceeding to shutdown")
+        
+        # 4. 强制刷新日志
         for handler in logging.getLogger().handlers:
             try:
                 handler.flush()
             except:
                 pass
-        # 4. 彻底清理所有资源
-        await cleanup_lightrag_resources(full_cleanup=True)
-        # 5. 再次刷新日志
+        
+        # 5. 彻底清理所有资源
+        try:
+            await cleanup_lightrag_resources(full_cleanup=True)
+        except CriticalError:
+            logging.critical("RESTARTABLE ERROR during shutdown cleanup, proceeding to exit")
+        except Exception as e:
+            logging.error(f"Error during shutdown cleanup: {str(e)}")
+        
+        # 6. 再次刷新日志
         for handler in logging.getLogger().handlers:
             try:
                 handler.flush()
             except:
                 pass
-        logging.info("Safe shutdown completed successfully")
+        
+        logging.info(f"Safe shutdown completed successfully with exit code {exit_code}")
     except Exception as e:
         logging.error(f"Error during safe shutdown: {str(e)}")
         traceback.print_exc()
     finally:
-        # 6. 退出程序
+        # 7. 退出程序
         sys.exit(exit_code)
 
 def signal_handler(sig, frame):
@@ -829,13 +953,16 @@ if __name__ == "__main__":
         print("按 Ctrl-C 可随时中断测试并查看当前结果...")
         
         interrupted = evaluate_dataset(test_file, args.start_line, checkpoint_data)
-        exit_code = 1 if interrupted else 0
+        exit_code = 0 if not interrupted else 1
     except KeyboardInterrupt:
         # 主函数级别的 KeyboardInterrupt 处理
         print("\n" + "="*60)
         print("[INTERRUPTED] Program terminated by user (Ctrl-C)")
         print("="*60)
         exit_code = 1
+    except CriticalError as ce:
+        logging.critical(f"[RESTARTABLE ERROR] Recoverable system error: {str(ce)}")
+        exit_code = 3
     except Exception as e:
         print(f"Unexpected error: {str(e)}")
         traceback.print_exc()
@@ -843,13 +970,15 @@ if __name__ == "__main__":
     finally:
         # 确保最后进行彻底清理
         try:
-            asyncio.run(cleanup_lightrag_resources(full_cleanup=True))
+            # 关键错误时，检查点已在前面保存，此处不再重复
+            if exit_code != 3:
+                asyncio.run(cleanup_lightrag_resources(full_cleanup=True))
             # 最终同步清理基础目录
             clear_directory_sync(BASE_WORKING_DIR)
         except Exception as e:
             logging.error(f"Final cleanup error: {str(e)}")
         
-        # 如果是正常完成（非中断且非检查点触发），删除检查点文件
+        # 如果是正常完成（非中断且非检查点触发且非关键错误），删除检查点文件
         if exit_code == 0 and os.path.exists(CHECKPOINT_FILE):
             try:
                 os.remove(CHECKPOINT_FILE)
