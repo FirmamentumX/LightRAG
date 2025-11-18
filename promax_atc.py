@@ -608,12 +608,6 @@ async def evaluate_dataset_async(file_path: str, start_line: int = 0, initial_st
                     interrupted = True
                     break
                 
-                # 检查是否需要保存检查点并退出
-                if _checkpoint_enabled and (line_num - start_line) % CHECKPOINT_INTERVAL == 0:
-                    logging.info(f"Checkpoint interval reached at line {line_num}. Saving checkpoint and exiting.")
-                    save_checkpoint(line_num, evaluation_state)
-                    interrupted = True  # 标记为"中断"，但实际上是正常退出
-                    break
                 
                 try:
                     entry = json.loads(raw_line.strip())
@@ -705,6 +699,14 @@ async def evaluate_dataset_async(file_path: str, start_line: int = 0, initial_st
                 )
                 logging.info(log_entry)
                 print(log_entry)
+                
+                # 检查是否需要保存检查点并退出
+                if _checkpoint_enabled and (line_num - start_line) % CHECKPOINT_INTERVAL == 0:
+                    logging.info(f"Checkpoint interval reached at line {line_num}. Saving checkpoint and exiting.")
+                    save_checkpoint(line_num, evaluation_state)
+                    interrupted = True  # 标记为"中断"，但实际上是正常退出
+                    break
+                
                 
                 # 定期磁盘清理和内存清理
                 if line_num % DISK_CLEANUP_INTERVAL == 0:
@@ -805,8 +807,9 @@ def evaluate_dataset(file_path: str, start_line: int = 0, initial_state: Optiona
         logging.warning("[INTERRUPTED] Evaluation stopped by user (Ctrl-C)")
         return True
     except CriticalError as ce:
-        logging.critical(f"[RESTARTABLE ERROR] Recoverable error: {str(ce)}")
-        return True
+        # 关键: 记录后重新抛出，不要返回True
+        logging.critical(f"[RESTARTABLE ERROR] Recoverable error in evaluate_dataset: {str(ce)}")
+        raise  # 重新抛出CriticalError，让主流程捕获
     except Exception as e:
         logging.error(f"Unexpected error in evaluate_dataset: {str(e)}")
         traceback.print_exc()
@@ -978,12 +981,27 @@ if __name__ == "__main__":
         except Exception as e:
             logging.error(f"Final cleanup error: {str(e)}")
         
-        # 如果是正常完成（非中断且非检查点触发且非关键错误），删除检查点文件
-        if exit_code == 0 and os.path.exists(CHECKPOINT_FILE):
+        # 修复: 只有完全成功完成(exit_code 0)且处理了所有数据，才删除检查点
+        expected_total_lines = CHECKPOINT_INTERVAL + _start_line
+        should_remove_checkpoint = (
+            exit_code == 0 and 
+            os.path.exists(CHECKPOINT_FILE) and 
+            evaluation_state["total"] > 0 and
+            # 添加额外条件，确保这是真正的成功完成
+            not INTERRUPTED and
+            # 可选：检查是否处理了预期的所有数据
+            evaluation_state["last_processed_line"] >= expected_total_lines - 1
+        )
+        
+        if should_remove_checkpoint:
             try:
                 os.remove(CHECKPOINT_FILE)
                 logging.info("Checkpoint file removed after successful completion")
             except Exception as e:
                 logging.warning(f"Failed to remove checkpoint file: {str(e)}")
+        elif exit_code == 3:
+            logging.info("Preserving checkpoint file due to restartable error (exit code 3)")
+        else:
+            logging.info(f"Preserving checkpoint file due to non-successful exit (code {exit_code})")
         
         sys.exit(exit_code)

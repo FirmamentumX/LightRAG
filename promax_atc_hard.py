@@ -523,12 +523,6 @@ async def evaluate_dataset_async(file_path: str, start_line: int = 0, initial_st
                     interrupted = True
                     break
                 
-                # 检查是否需要保存检查点并退出
-                if _checkpoint_enabled and (line_num - start_line) % CHECKPOINT_INTERVAL == 0:
-                    logging.info(f"Checkpoint interval reached at line {line_num}. Saving checkpoint and exiting.")
-                    save_checkpoint(line_num, evaluation_state)
-                    interrupted = True  # 标记为"中断"，但实际上是正常退出
-                    break
                 
                 try:
                     entry = json.loads(raw_line.strip())
@@ -614,6 +608,13 @@ async def evaluate_dataset_async(file_path: str, start_line: int = 0, initial_st
                 )
                 logging.info(log_entry)
                 print(log_entry)
+                
+                # 检查是否需要保存检查点并退出
+                if _checkpoint_enabled and (line_num - start_line) % CHECKPOINT_INTERVAL == 0:
+                    logging.info(f"Checkpoint interval reached at line {line_num}. Saving checkpoint and exiting.")
+                    save_checkpoint(line_num, evaluation_state)
+                    interrupted = True  # 标记为"中断"，但实际上是正常退出
+                    break
                 
                 # 定期磁盘清理和内存清理
                 if line_num % DISK_CLEANUP_INTERVAL == 0:
